@@ -41,6 +41,11 @@
 	ul.ul-drink, ol.ul-drink {
 		font-size: 0.7em;
 	}
+
+	img.card-img-top {
+		border-radius: 10px;
+		height: 200px;
+	}
 }
 
 @media (min-width: 475.99px) and (max-width: 575.98px) {
@@ -303,6 +308,7 @@ body {
 
 .card-img-top {
 	border-radius: 10px;
+	height: 400px;
 }
 
 .h2-drink {

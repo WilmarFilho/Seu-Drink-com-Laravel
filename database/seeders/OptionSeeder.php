@@ -15,7 +15,7 @@ class OptionSeeder extends Seeder
      */
     public function run()
     {
-       /* Options::create([
+        Options::create([
             'bebida' => 'whisky',
             'ingrediente' => 'sal',
             'suco_fruta' => 'limão'
@@ -121,7 +121,7 @@ class OptionSeeder extends Seeder
             'bebida' => 'martini',
             'ingrediente' => 'energético',
             'suco_fruta' => 'caju'
-        ]);*/
+        ]);
         
 
     }

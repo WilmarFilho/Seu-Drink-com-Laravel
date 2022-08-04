@@ -315,7 +315,7 @@
 			@endisset
 
 			
-			<section id="conteudo_carrousel" class="sugestao row mt-5 mb-5  py-5"> <!-- carrousel -->
+			<!--<section id="conteudo_carrousel" class="sugestao row mt-5 mb-5  py-5"> 
 				
 				
 					
@@ -429,7 +429,7 @@
 
 				
 
-			</section>
+			</section>-->
 
 			<footer id="rodape" class="row"> <!-- rodape -->
 				<article class="col-12 row align-items-center ">

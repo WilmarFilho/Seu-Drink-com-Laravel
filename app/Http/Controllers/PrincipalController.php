@@ -26,9 +26,9 @@ class PrincipalController extends Controller
 
         $drink->bebida =  empty($request->input('bebida')) ? '*' : $request->input('bebida') ;
         $drink->bebida_adicional = empty($request->input('bebida_adicional')) ? '*' : $request->input('bebida_adicional');
-        $drink->ingrediente = empty($drink->ingrediente) ? '*' : $drink->ingrediente;
-        $drink->ingrediente_adicional_1 = empty($drink->ingrediente_adicional_1) ? '*' : $drink->ingrediente_adicional_1;
-        $drink->ingrediente_adicional_2 = empty($drink->ingrediente_adicional_2) ? '*' : $drink->ingrediente_adicional_2;
+        $drink->ingrediente = empty($request->input('ingrediente')) ? '*' : $request->input('ingrediente');
+        $drink->ingrediente_adicional_1 = empty($request->input('ingrediente_adicional_1')) ? '*' : $request->input('ingrediente_adicional_1');
+        $drink->ingrediente_adicional_2 = empty($request->input('ingrediente_adicional_2')) ? '*' : $request->input('ingrediente_adicional_2');
         $drink->suco_fruta = empty($request->input('suco_fruta')) ? '*' : $request->input('suco_fruta');
         $drink->suco_fruta_adicional = empty($request->input('suco_fruta_adicional')) ? '*' : $request->input('suco_fruta_adicional');
 
