@@ -1,5 +1,4 @@
 
-
 <html>
 	
 	<head>
@@ -22,27 +21,20 @@
 			    });
 			    
 			    if(!!document.getElementById('conteudo_drinks')) {
-			   
+					
+					targetOffset = $('#conteudo_drinks').offset().top;
+
 				    $('html, body').animate({
-				    	scrollTop: 800
+				    	scrollTop: targetOffset -100
 				    }, 600);
 
 				}
 
-
-
 			});
 
-			
 		</script>
 		
 		<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-		
-		
-
-		
-
-
 	</head>
 
 	
@@ -51,32 +43,41 @@
 
 		<main class="container-fluid">
 
-			<header class="">
-				
-				<div class="navegacao row fixed-top">
+			<header id='cabeçalho'>	 <!-- cabecalho -->
+				<article class="navegacao row fixed-top">
 					
 					<div class="mx-auto col-md-6 col-9 d-flex justify-content-center">
 						<a href="{{route("site.index")}}"><img src="imagens/logo.png"  class="img-fluid "></a>
 					</div>
 
-				</div>
-
+				</article>
 			</header>
 
-			<section id="conteudo" class=" topo row	 py-5 " style="margin-top: 200px">
+			<section id='capa' class='d-md-block d-none'>  <!-- capa -->
+
+				<h1 class='capa text-center' >Descubra o Drink <br>ideal pra você !</h1>
+	
+			</section>
+
+			<section id="conteudo_procura" class=" topo row	 py-5 "> <!-- busca -->
 
 				
 				
-					<div class="col-md-6 col-12 text-center row animacao mx-auto" >
+					<div class="col-xl-6 col-12 text-center row animacao mx-auto" >
 						<div class="texto col-12 mx-auto ">
-							<h2>Sem ideia do que beber ?</h2>
-							<h3>Oque você tem ?</h3>
+							<h2 class='mb-3 h2-procura'>Selecione oque você tem !</h2>
+							<div class='p-procura'>
+								<p>- Preencha com todas bebidas, sucos, frutas ou ingredientes que você tem. </p>
+								<p>- Não precisa preencher os campos se não estiver com o respectivo item ! </p>
+							</div>
 						</div>
 						
 						<div class="col-10 mx-auto form">
-							<form method="post" action="{{route("site.index")}}">
+							<form method="get" action="{{route('site.drink')}}">
 
 								@csrf
+
+							
 
 								<div class="form-row">
 									
@@ -154,13 +155,13 @@
 
 								</div>
 
-								<button type="submit"  class="btn btn-outline-warning mt-5">Procurar</button>
+								<button type="submit"  class="btn btn-danger mt-5 btn-lg btn-block btn-custom">Procurar</button>
 								
 							</form>
 						</div>
 					</div>
 
-					<div class="col-md-6 col-12 animacao">
+					<div class="col-xl-6 col-12 animacao mt-5">
 						<img src="imagens/d5.jpg" class="img-fluid img">
 					</div>
 
@@ -168,12 +169,15 @@
 
 			</section>
 
-			@isset($drinks)
+			@isset($drinks)  <!-- resultado da busca -->
 
 				@if($drinks->isEmpty() != 1)
-					<section id="conteudo_drinks" class="drinks-procurados row my-5 py-5 justify-content-around">
+					<section id="conteudo_drinks" class="row my-5 py-5 justify-content-center">
 
-						<h2 class="titulo_conteudo col-12 text-center mb-5">Drinks que você pode fazer !</h2>
+						<div class='col-10 text-center mb-3'>
+							<h2 class="titulo_conteudo">Drinks que você pode fazer !</h2>
+						</div>
+						
 						
 						<?php foreach ($drinks as $indice => $drink) { ?>
 							
@@ -190,7 +194,7 @@
 								
 							?>
 
-							<div class="card col-md-5 col-10 card-custom mt-4">
+							<div class="card col-md-5 mx-2 col-5 card-custom mt-4">
 								
 									
 									
@@ -200,14 +204,14 @@
 								
 
 								<div class="card-body">
-									<h2 class="text-capitalize text-center card-title"><?=$drink->nome?></h2>
+									<h2 class="text-capitalize text-center card-title h2-drink"><?=$drink->nome?></h2>
 
 									<div class="card-text row justify-content-center">
 
 										<div class="col-md-6 mt-3">
-											<h3 class="text-center ">Ingredientes:</h3>
+											<h3 class="text-center h3-drink">Ingredientes:</h3>
 
-											<ul class="list-group text-capitalize">
+											<ul class="list-group text-capitalize ul-drink">
 
 												<?php if($drink->bebida !== 'ND') { ?>
 													<li class="list-group-item"><?=$drink->bebida?></li>
@@ -242,8 +246,8 @@
 
 										<div class="col-md-6 mt-3">
 
-											<h3 class="text-center ">Como fazer:</h3>
-											<ol class="list-group text-capitalize">
+											<h3 class="text-center h3-drink">Como fazer:</h3>
+											<ol class="list-group text-capitalize ul-drink">
 
 												<?php if($preparo[0] !== '') { ?>
 													<li class="list-group-item"><?=$preparo[0]?></li>
@@ -284,17 +288,23 @@
 							</div>
 
 						<?php } ?>
-
+						
+						<div class='col-12 d-flex justify-content-center mt-5'>
+							
+								{{$drinks->links('pagination.pagination') }}
+							
+						</div>
 
 					</section>
+
 				@endif
 
 			@endisset  
 
-			@isset($drinks)
+			@isset($drinks) 
 
 				@if($drinks->isEmpty() == 1)
-					<section id="conteudo" class="row my-5 py-5">
+					<section id="conteudo_drinks" class="row my-5 py-5">
 
 						<h1 class='col-12 text-center'>Sem drink</h1>
 						<button class="btn btn-outline-warning mx-auto" onclick="window.location.href='index.php'">Procurar de novo</button>
@@ -305,15 +315,15 @@
 			@endisset
 
 			
-			<section id="conteudo" class="sugestao row mt-5 mb-5  py-5">
+			<section id="conteudo_carrousel" class="sugestao row mt-5 mb-5  py-5"> <!-- carrousel -->
 				
 				
 					
 					<div class="col-12 text-center ">
-						<h2 class="texto">Nossas sugestões</h2>
+						<h2 class="h2-sugestao">Nossas sugestões</h2>
 					</div>
 
-					<div class="col-md-10 col-12 mx-auto mt-4" >
+					<div class="col-10 mx-auto mt-4 d-none d-md-block" >
 
 						<div id="carousel" class="carousel slide " data-ride="carousel">
 							
@@ -354,11 +364,61 @@
 							</div>
 
 							<a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-							    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							    <span><i class="fa-solid fa-angles-left fa-2x text-dark"></i></span>
 							    <span class="sr-only">Previous</span>
 						    </a>
 						  	<a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
-							    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+							    <span><i class="fa-solid fa-angles-right fa-2x text-dark"></i></span>
+							    <span class="sr-only">Next</span>
+						  	</a>
+
+
+						</div>
+
+					</div>
+
+					<div class="col-10 mx-auto mt-4 d-md-none d-block" >
+
+						<div id="carousel" class="carousel slide " data-ride="carousel">
+							
+							<div class="carousel-inner">
+								
+								<div class="carousel-item active">
+									<div class="row">
+										<div class="col-6" style="padding: 0px">
+											
+											<img src="imagens/drinks/pinacolada.png" class="img-drink" height="400" width="100%">
+										</div>
+										<div class="col-6" style="padding: 0px">
+											<img src="imagens/drinks/caipirinhadelimao.jpg" height="400" width="100%" >
+										</div>
+										
+									</div>
+								</div>
+
+								<div class="carousel-item">
+									<div class="row">
+										<div class="col-6" style="padding: 0px">
+											
+											<img src="imagens/drinks/sangria.jpg" class="img-drink" height="400" width="100%">
+										</div>
+										<div class="col-6" style="padding: 0px">
+											<img src="imagens/drinks/gintonica.jpg" height="400" width="100%" >
+										</div>
+										
+									</div>
+								</div>
+
+								
+
+							</div>
+
+							<a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+							    <span><i class="fa-solid fa-angles-left  text-dark"></i></span>
+							    <span class="sr-only">Previous</span>
+						    </a>
+						  	<a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+							    <span><i class="fa-solid fa-angles-right  text-dark"></i></span>
 							    <span class="sr-only">Next</span>
 						  	</a>
 
@@ -371,20 +431,13 @@
 
 			</section>
 
-			<footer id="rodape" class="row">
-				<article class="col-12 row align-items-center justify-content-center">
-					<div class="col-4 text-center">
+			<footer id="rodape" class="row"> <!-- rodape -->
+				<article class="col-12 row align-items-center ">
+					<div class="col-md-4 col-12 text-center mr-auto">
 						<h2>Sobre:</h2>
-						<p>Web service criado e desenvolvido de forma autonoma</p>		
+						<p class='text-black-50 font-italic'>Web service criado e desenvolvido de forma autonoma</p>		
 					</div>
-					<div class="col-4 text-center">
-						<h2>Navegação:</h2>
-						<ul class="nav justify-content-center">
-							<li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
-							<li class="nav-item"><a class="nav-link">teste</a></li>
-							<li class="nav-item"><a class="nav-link">teste</a></li>
-						</ul>
-					</div>	
+					
 					<div class="col-md-4 col-12 text-center">
 						<h2>Parceiros</h2>
 						<ul class="nav justify-content-center">
