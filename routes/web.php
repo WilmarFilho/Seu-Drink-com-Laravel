@@ -13,9 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function() {
+/*Route::get('/', function() {
     return view('index');
-});
+})->name('site.index');*/
 
-Route::post('/drink', [App\Http\Controllers\PrincipalController::class, 'index'])->name('site.index');
+Route::get('/', [App\Http\Controllers\PrincipalController::class, 'index'])->name('site.index');
+
+
+Route::post('/', [App\Http\Controllers\PrincipalController::class, 'index'])->name('site.index');
+
 

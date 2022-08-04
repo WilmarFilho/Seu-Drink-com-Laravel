@@ -20,9 +20,8 @@
 			    	placeholder: "Selecione oque voce tem!",
     				allowClear: true
 			    });
-
 			    
-			    if($(location).attr('href') == 'http://127.0.0.1:8000/drink') {
+			    if(!!document.getElementById('conteudo_drinks')) {
 			   
 				    $('html, body').animate({
 				    	scrollTop: 800
@@ -57,7 +56,7 @@
 				<div class="navegacao row fixed-top">
 					
 					<div class="mx-auto col-md-6 col-9 d-flex justify-content-center">
-						<a href="index.php"><img src="imagens/logo.png"  class="img-fluid "></a>
+						<a href="{{route("site.index")}}"><img src="imagens/logo.png"  class="img-fluid "></a>
 					</div>
 
 				</div>
@@ -75,7 +74,7 @@
 						</div>
 						
 						<div class="col-10 mx-auto form">
-							<form method="POST" action="/drink">
+							<form method="post" action="{{route("site.index")}}">
 
 								@csrf
 
@@ -83,13 +82,11 @@
 									
 									<div class="col-md-6 col-12">
 										<label>Bebida</label>
-										<select class="form-control meu-select" name="bebida">
+										<select class="form-control meu-select " name="bebida">
 											<option></option>
-											<option value="*">Nenhum(a)</option>
-											<option>Gin</option>
-											<option>Vodka</option>
-											<option>Tequila</option>
-											<option>Whisky</option>
+											@foreach($options as $key => $option)
+												<option>{{ $option->bebida }}</option>
+											@endforeach										
 										</select>
 									</div>
 
@@ -97,11 +94,9 @@
 										<label>Bebida Adicional</label>
 										<select class="form-control meu-select" name="bebida_adicional">
 											<option></option>
-											<option value="*">Nenhum(a)</option>
-											<option>Gin</option>
-											<option>Vodka</option>
-											<option>Tequila</option>
-											<option>Whisky</option>
+											@foreach($options as $key => $option)
+											<option>{{ $option->bebida }}</option>
+											@endforeach		
 										</select>
 									</div>
 
@@ -109,11 +104,9 @@
 										<label>Suco ou Fruta</label>
 										<select class="form-control meu-select" name="suco_fruta">
 											<option></option>
-											<option value="*">Nenhum(a)</option>
-											<option>Morango</option>
-											<option>Abacaxi</option>
-											<option>Limão</option>
-											<option>Maracuja</option>
+											@foreach($options as $key => $option)
+											<option>{{ $option->suco_fruta }}</option>
+											@endforeach		
 										</select>
 									</div>
 
@@ -121,11 +114,9 @@
 										<label>Suco ou Fruta Adicional</label>
 										<select class="form-control meu-select" name="suco_fruta_adicional">
 											<option></option>
-											<option value="*">Nenhum(a)</option>
-											<option>Morango</option>
-											<option>Abacaxi</option>
-											<option>Limão</option>
-											<option>Maracuja</option>
+											@foreach($options as $key => $option)
+											<option>{{ $option->suco_fruta }}</option>
+											@endforeach	
 										</select>
 									</div>
 
@@ -133,11 +124,9 @@
 										<label>Ingrediente</label>
 										<select class="form-control meu-select" name="ingrediente">
 											<option></option>
-											<option value="*">Nenhum(a)</option>
-											<option>Leite condensado</option>
-											<option>Açucar</option>
-											<option>Halls</option>
-											<option>Sal</option>
+											@foreach($options as $key => $option)
+											<option>{{ $option->ingrediente }}</option>
+											@endforeach	
 										</select>
 									</div>
 
@@ -145,11 +134,9 @@
 										<label>Ingrediente Adicional</label>
 										<select class="form-control meu-select" name="ingrediente_adicional_1">
 											<option></option>
-											<option value="*">Nenhum(a)</option>
-											<option>Leite condensado</option>
-											<option>Açucar</option>
-											<option>Halls</option>
-											<option>Sal</option>
+											@foreach($options as $key => $option)
+											<option>{{ $option->ingrediente }}</option>
+											@endforeach	
 										</select>
 									</div>
 
@@ -157,11 +144,9 @@
 										<label>Ingrediente Adicional</label>
 										<select class="form-control meu-select" name="ingrediente_adicional_2">
 											<option></option>
-											<option value="*">Nenhum(a)</option>
-											<option>Leite condensado</option>
-											<option>Açucar</option>
-											<option>Halls</option>
-											<option>Sal</option>
+											@foreach($options as $key => $option)
+											<option>{{ $option->ingrediente }}</option>
+											@endforeach	
 										</select>
 									</div>
 
@@ -185,142 +170,139 @@
 
 			@isset($drinks)
 
-				<section id="conteudo_drinks" class="row my-5 py-5 justify-content-around">
+				@if($drinks->isEmpty() != 1)
+					<section id="conteudo_drinks" class="drinks-procurados row my-5 py-5 justify-content-around">
 
-					<h2 class="titulo_conteudo col-12 text-center mb-5">Drinks que você pode fazer !</h2>
-				
-				@empty($drinks)
-					
-					<section id="conteudo" class="row my-5 py-5">
-
-						<h1>Sem drink</h1>
-						<button class="btn btn-outline-warning" onclick="window.location.href='index.php'">Procurar de novo</button>
-
-					</section>
-
-				@endempty
-
-					
-					<?php foreach ($drinks as $indice => $drink) { ?>
+						<h2 class="titulo_conteudo col-12 text-center mb-5">Drinks que você pode fazer !</h2>
 						
-						<?php 
+						<?php foreach ($drinks as $indice => $drink) { ?>
+							
+							<?php 
 
-							$preparo = explode('*', $drink->preparo) ;
-							
-							$preparo[1] =  isset($preparo[1]) ? $preparo[1] : '' ;
-							$preparo[2] =  isset($preparo[2]) ? $preparo[2] : '' ;
-							$preparo[3] =  isset($preparo[3]) ? $preparo[3] : '' ;
-							$preparo[4] =  isset($preparo[4]) ? $preparo[4] : '' ;
-							$preparo[5] =  isset($preparo[5]) ? $preparo[5] : '' ;
-							$preparo[6] =  isset($preparo[6]) ? $preparo[6] : '' ;
-							
-						?>
-
-						<div class="card col-md-5 col-10 card-custom mt-4">
-							
+								$preparo = explode('*', $drink->preparo) ;
 								
+								$preparo[1] =  isset($preparo[1]) ? $preparo[1] : '' ;
+								$preparo[2] =  isset($preparo[2]) ? $preparo[2] : '' ;
+								$preparo[3] =  isset($preparo[3]) ? $preparo[3] : '' ;
+								$preparo[4] =  isset($preparo[4]) ? $preparo[4] : '' ;
+								$preparo[5] =  isset($preparo[5]) ? $preparo[5] : '' ;
+								$preparo[6] =  isset($preparo[6]) ? $preparo[6] : '' ;
 								
-								<img src="<?=$drink->img?>" class="img-fluid card-img-top">
+							?>
+
+							<div class="card col-md-5 col-10 card-custom mt-4">
+								
+									
+									
+									<img src="<?=$drink->img?>" class="img-fluid card-img-top">
+									
+
 								
 
-							
+								<div class="card-body">
+									<h2 class="text-capitalize text-center card-title"><?=$drink->nome?></h2>
 
-							<div class="card-body">
-								<h2 class="text-capitalize text-center card-title"><?=$drink->nome?></h2>
+									<div class="card-text row justify-content-center">
 
-								<div class="card-text row justify-content-center">
+										<div class="col-md-6 mt-3">
+											<h3 class="text-center ">Ingredientes:</h3>
 
-									<div class="col-md-6 mt-3">
-										<h3 class="text-center ">Ingredientes:</h3>
+											<ul class="list-group text-capitalize">
 
-										<ul class="list-group text-capitalize">
+												<?php if($drink->bebida !== 'ND') { ?>
+													<li class="list-group-item"><?=$drink->bebida?></li>
+												<?php } ?>
 
-											<?php if($drink->bebida !== 'ND') { ?>
-												<li class="list-group-item"><?=$drink->bebida?></li>
-											<?php } ?>
+												<?php if($drink->bebida_adicional !== 'ND') { ?>
+													<li class="list-group-item"><?=$drink->bebida_adicional?></li>
+												<?php } ?>
 
-											<?php if($drink->bebida_adicional !== 'ND') { ?>
-												<li class="list-group-item"><?=$drink->bebida_adicional?></li>
-											<?php } ?>
+												<?php if($drink->suco_fruta !== 'ND') { ?>
+													<li class="list-group-item"><?=$drink->suco_fruta?></li>
+												<?php } ?>
 
-											<?php if($drink->suco_fruta !== 'ND') { ?>
-												<li class="list-group-item"><?=$drink->suco_fruta?></li>
-											<?php } ?>
+												<?php if($drink->suco_fruta_adicional !== 'ND') { ?>
+													<li class="list-group-item"><?=$drink->suco_fruta_adicional?></li>
+												<?php } ?>
 
-											<?php if($drink->suco_fruta_adicional !== 'ND') { ?>
-												<li class="list-group-item"><?=$drink->suco_fruta_adicional?></li>
-											<?php } ?>
+												<?php if($drink->ingrediente !== 'ND') { ?>
+													<li class="list-group-item"><?=$drink->ingrediente?></li>
+												<?php } ?>
 
-											<?php if($drink->ingrediente !== 'ND') { ?>
-												<li class="list-group-item"><?=$drink->ingrediente?></li>
-											<?php } ?>
+												<?php if($drink->ingrediente_adicional_1 !== 'ND') { ?>
+													<li class="list-group-item"><?=$drink->ingrediente_adicional_1?></li>
+												<?php } ?>
 
-											<?php if($drink->ingrediente_adicional_1 !== 'ND') { ?>
-												<li class="list-group-item"><?=$drink->ingrediente_adicional_1?></li>
-											<?php } ?>
+												<?php if($drink->ingrediente_adicional_2 !== 'ND') { ?>
+													<li class="list-group-item"><?=$drink->ingrediente_adicional_2?></li>
+												<?php } ?>
 
-											<?php if($drink->ingrediente_adicional_2 !== 'ND') { ?>
-												<li class="list-group-item"><?=$drink->ingrediente_adicional_2?></li>
-											<?php } ?>
+											</ul>
+										</div>
 
-										</ul>
-									</div>
+										<div class="col-md-6 mt-3">
 
-									<div class="col-md-6 mt-3">
+											<h3 class="text-center ">Como fazer:</h3>
+											<ol class="list-group text-capitalize">
 
-										<h3 class="text-center ">Como fazer:</h3>
-										<ol class="list-group text-capitalize">
-
-											<?php if($preparo[0] !== '') { ?>
-												<li class="list-group-item"><?=$preparo[0]?></li>
-											<?php } ?>
-											
-											<?php if($preparo[1] !== '') { ?>
-												<li class="list-group-item"><?=$preparo[1]?></li>
-											<?php } ?>
+												<?php if($preparo[0] !== '') { ?>
+													<li class="list-group-item"><?=$preparo[0]?></li>
+												<?php } ?>
+												
+												<?php if($preparo[1] !== '') { ?>
+													<li class="list-group-item"><?=$preparo[1]?></li>
+												<?php } ?>
 
 
-											<?php if($preparo[2] !== '') { ?>
-												<li class="list-group-item"><?=$preparo[2]?></li>
-											<?php } ?>
+												<?php if($preparo[2] !== '') { ?>
+													<li class="list-group-item"><?=$preparo[2]?></li>
+												<?php } ?>
 
-											<?php if($preparo[3] !== '') { ?>
-												<li class="list-group-item"><?=$preparo[3]?></li>
-											<?php } ?>
+												<?php if($preparo[3] !== '') { ?>
+													<li class="list-group-item"><?=$preparo[3]?></li>
+												<?php } ?>
 
-											<?php if($preparo[4] !== '') { ?>
-												<li class="list-group-item"><?=$preparo[4]?></li>
-											<?php } ?>
+												<?php if($preparo[4] !== '') { ?>
+													<li class="list-group-item"><?=$preparo[4]?></li>
+												<?php } ?>
 
-											<?php if($preparo[5] !== '') { ?>
-												<li class="list-group-item"><?=$preparo[5]?></li>
-											<?php } ?>
+												<?php if($preparo[5] !== '') { ?>
+													<li class="list-group-item"><?=$preparo[5]?></li>
+												<?php } ?>
 
-											<?php if($preparo[6] !== '') { ?>
-												<li class="list-group-item"><?=$preparo[6]?></li>
-											<?php } ?>
+												<?php if($preparo[6] !== '') { ?>
+													<li class="list-group-item"><?=$preparo[6]?></li>
+												<?php } ?>
 
-										</ol>
+											</ol>
+
+										</div>
 
 									</div>
 
 								</div>
-
 							</div>
-						</div>
 
-					<?php } ?>
+						<?php } ?>
 
 
-				</section>
+					</section>
+				@endif
 
 			@endisset  
 
-			<?php if(isset($drinks) and $drinks == '') { ?>
+			@isset($drinks)
 
-				
+				@if($drinks->isEmpty() == 1)
+					<section id="conteudo" class="row my-5 py-5">
 
-			<?php  } ?>
+						<h1 class='col-12 text-center'>Sem drink</h1>
+						<button class="btn btn-outline-warning mx-auto" onclick="window.location.href='index.php'">Procurar de novo</button>
+
+					</section>
+				@endif
+
+			@endisset
 
 			
 			<section id="conteudo" class="sugestao row mt-5 mb-5  py-5">
