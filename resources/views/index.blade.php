@@ -68,7 +68,7 @@
 							<h2 class='mb-3 h2-procura'>Selecione oque você tem !</h2>
 							<div class='p-procura'>
 								<p>- Preencha com todas bebidas, sucos, frutas ou ingredientes que você tem. </p>
-								<p>- Não precisa preencher os campos se não estiver com o respectivo item ! </p>
+								<p>- Preencha pelo menos um campo ! </p>
 							</div>
 						</div>
 						
@@ -91,16 +91,7 @@
 										</select>
 									</div>
 
-									<div class="col-md-6 col-12">
-										<label>Bebida Adicional</label>
-										<select class="form-control meu-select" name="bebida_adicional">
-											<option></option>
-											@foreach($options as $key => $option)
-											<option>{{ $option->bebida }}</option>
-											@endforeach		
-										</select>
-									</div>
-
+									
 									<div class="col-md-6 col-12">
 										<label>Suco ou Fruta</label>
 										<select class="form-control meu-select" name="suco_fruta">
@@ -111,15 +102,7 @@
 										</select>
 									</div>
 
-									<div class="col-md-6 col-12 mx-auto">
-										<label>Suco ou Fruta Adicional</label>
-										<select class="form-control meu-select" name="suco_fruta_adicional">
-											<option></option>
-											@foreach($options as $key => $option)
-											<option>{{ $option->suco_fruta }}</option>
-											@endforeach	
-										</select>
-									</div>
+									
 
 									<div class="col-md-6 col-12 mx-auto">
 										<label>Ingrediente</label>
@@ -131,29 +114,16 @@
 										</select>
 									</div>
 
-									<div class="col-md-6 col-12 mx-auto">
-										<label>Ingrediente Adicional</label>
-										<select class="form-control meu-select" name="ingrediente_adicional_1">
-											<option></option>
-											@foreach($options as $key => $option)
-											<option>{{ $option->ingrediente }}</option>
-											@endforeach	
-										</select>
-									</div>
-
-									<div class="col-md-6 col-12 mx-auto">
-										<label>Ingrediente Adicional</label>
-										<select class="form-control meu-select" name="ingrediente_adicional_2">
-											<option></option>
-											@foreach($options as $key => $option)
-											<option>{{ $option->ingrediente }}</option>
-											@endforeach	
-										</select>
-									</div>
+									
 
 									
 
 								</div>
+
+								
+
+							
+								
 
 								<button type="submit"  class="btn btn-danger mt-5 btn-lg btn-block btn-custom">Procurar</button>
 								
@@ -211,7 +181,7 @@
 										<div class="col-md-6 mt-3">
 											<h3 class="text-center h3-drink">Ingredientes:</h3>
 
-											<ul class="list-group text-capitalize ul-drink">
+											<ul class="list-group text-first ul-drink">
 
 												<?php if($drink->bebida !== 'ND') { ?>
 													<li class="list-group-item"><?=$drink->bebida?></li>
@@ -247,7 +217,7 @@
 										<div class="col-md-6 mt-3">
 
 											<h3 class="text-center h3-drink">Como fazer:</h3>
-											<ol class="list-group text-capitalize ul-drink">
+											<ol class="list-group ul-drink">
 
 												<?php if($preparo[0] !== '') { ?>
 													<li class="list-group-item"><?=$preparo[0]?></li>
@@ -435,7 +405,7 @@
 				<article class="col-12 row align-items-center ">
 					<div class="col-md-4 col-12 text-center mr-auto">
 						<h2>Sobre:</h2>
-						<p class='text-black-50 font-italic'>Web service criado e desenvolvido de forma autonoma</p>		
+						<p class='text-black-50 font-italic'>Web service criado e desenvolvido de forma autonoma por Wilmar Filho</p>		
 					</div>
 					
 					<div class="col-md-4 col-12 text-center">

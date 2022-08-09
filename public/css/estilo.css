@@ -187,6 +187,11 @@ body {
 	margin: 0;	
 }
 
+li:first-letter {
+	text-transform: uppercase;
+}
+
+
 @font-face {
 	font-family: 'beach';
 	src: url('../fonts/beach.woff');
