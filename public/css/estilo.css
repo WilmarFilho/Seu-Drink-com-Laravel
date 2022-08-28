@@ -293,6 +293,14 @@ li:first-letter {
 
 /* Conteudo_Drinks */
 
+.alert {
+	font-size: 2em;
+	color: #DF7401;
+	font-family: one;
+	font-weight: 300;
+	font-style: italic;
+}
+
 .titulo_conteudo {
 	font-family: beach;
 	text-shadow: 0 0 1em #DF7401;

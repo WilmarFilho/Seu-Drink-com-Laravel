@@ -276,7 +276,7 @@
 				@if($drinks->isEmpty() == 1)
 					<section id="conteudo_drinks" class="row my-5 py-5">
 
-						<h1 class='col-12 text-center'>Sem drink</h1>
+						<h1 class='col-12 text-center alert'>Infelizmente, no momento não temos drinks com essa combinação cadastrados!</h1>
 						<button class="btn btn-outline-warning mx-auto" onclick="window.location.href='index.php'">Procurar de novo</button>
 
 					</section>
