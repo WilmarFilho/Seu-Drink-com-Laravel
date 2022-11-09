@@ -15,7 +15,7 @@ O Seu Drink é um web service que eu desenvolvi todo o front end e back end. O s
 
 ## Veja aqui um pouco da página do Seu Drink
 
-<img src='public/img/tela.png'>
+<img src='public/imagens/tela.png'>
 
 
 
