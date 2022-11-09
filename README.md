@@ -1,4 +1,4 @@
-<p align="center"><a href="https://nkwtech.produtosdotiao.com/public" target="blank"><img src="public/imagens/logo.png" width="400" alt="Seu Drink Logo"></a></p>
+<p align="center"><a href="https://drink.produtosdotiao.com/public/" target="blank"><img src="public/imagens/logo.png" width="400" alt="Seu Drink Logo"></a></p>
 
 
 
