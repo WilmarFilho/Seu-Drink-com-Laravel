@@ -81,7 +81,8 @@
 
 			</section>
 
-			<section id="conteudo_procura" class=" topo container row	 py-5 "> <!-- busca -->
+			<section id="main" class="container-fluid row	py-5 "> <!-- busca -->
+
 
 
 			</section>
@@ -265,9 +266,9 @@
                     </div>
                 </div>
 
-                <div  class='row justify-content-center'>
+                <div  class='row justify-content-center' style='border-top: 1px double darkgray'>
 
-                    <div id='legenda-rodape' class="ml-2 mt-3 col-md-6 col-10  pt-3 text-light text-center">
+                    <div id='legenda-rodape' class="ml-2 mt-3 col-md-6 col-10  pt-3 text-light text-center" >
 
                         <p class='p-rodape'>Copyright (c) 2023 Wilmar Filho -  Todos os direitos reservados <a href='https://www.instagram.com/wilmar.filho1511/' class=' mx-2 btn btn-light'><i class="fa-brands fa-instagram"></i></a>
                             </p>
