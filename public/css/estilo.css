@@ -1,183 +1,19 @@
 /*Responsividade*/
 
 @media (max-width: 475.98px) {
-	section#conteudo_procura {
-		margin-top: 150px;
-	}
 
-	h2.h2-procura {
-		font-size: 3em;
-	}
-
-	h2.h2-sugestao {
-		font-size: 3em;
-	}
-
-	a.carousel-control-next {
-		right: -50px !important;
-	}
-
-	a.carousel-control-prev {
-		left: -50px !important;
-	}
-
-	h2.titulo_conteudo {
-		font-size: 3em;
-	}
-
-	section#conteudo_drinks {
-		margin-left: -30px !important;
-		margin-right: -30px !important;
-	}
-
-	h2.h2-drink {
-		font-size: 2em;
-	}
-
-	h3.h3-drink {
-		font-size: 2em;
-	}
-
-	ul.ul-drink, ol.ul-drink {
-		font-size: 0.7em;
-	}
-
-	img.card-img-top {
-		border-radius: 10px;
-		height: 200px;
-	}
 }
 
 @media (min-width: 475.99px) and (max-width: 575.98px) {
-	section#conteudo_procura {
-		margin-top: 150px;
-	}
 
-	h2.h2-procura {
-		font-size: 3.5em;
-	}
-
-	h2.h2-sugestao {
-		font-size: 3.5em;
-	}
-
-	a.carousel-control-next {
-		right: -50px !important;
-	}
-
-	a.carousel-control-prev {
-		left: -50px !important;
-	}
-
-	h2.titulo_conteudo {
-		font-size: 3.5em;
-	}
-
-	section#conteudo_drinks {
-		margin-left: -40px !important;
-		margin-right: -40px !important;
-	}
-
-	h2.h2-drink {
-		font-size: 2em;
-	}
-
-	h3.h3-drink {
-		font-size: 2em;
-	}
-
-	ul.ul-drink, ol.ul-drink {
-		font-size: 0.8em;
-	}
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
-	section#conteudo_procura {
-		margin-top: 150px;
-	}
 
-	h2.h2-procura {
-		font-size: 3.5em;
-	}
-
-	h2.h2-sugestao {
-		font-size: 3.5em;
-	}
-
-	a.carousel-control-next {
-		right: -60px !important;
-	}
-
-	a.carousel-control-prev {
-		left: -60px !important;
-	}
-
-	h2.titulo_conteudo {
-		font-size: 3.5em;
-	}
-
-	section#conteudo_drinks {
-		margin-left: -50px !important;
-		margin-right: -50px !important;
-	}
-
-	h2.h2-drink {
-		font-size: 2.5em;
-	}
-
-	h3.h3-drink {
-		font-size: 2.5em;
-	}
-
-	ul.ul-drink, ol.ul-drink {
-		font-size: 0.9em;
-	}
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
-	section#conteudo_procura {
-		margin-top: 20px;
-	}
 
-	h2.h2-procura {
-		font-family: beach;
-		font-size: 5em;
-	}
-
-	h2.h2-sugestao {
-		font-family: beach;
-		font-size: 5em;
-		color: #DF7401;
-	}
-
-	a.carousel-control-next {
-		right: -90px !important;
-	}
-
-	a.carousel-control-prev {
-		left: -90px !important;
-	}
-
-	h2.titulo_conteudo {
-		font-size: 5em;
-	}
-
-	section#conteudo_drinks {
-		margin-left: -60px !important;
-		margin-right: -60px !important;
-	}
-
-	h2.h2-drink {
-		font-size: 2.8em;
-	}
-
-	h3.h3-drink {
-		font-size: 2em;
-	}
-
-	ul.ul-drink, ol.ul-drink {
-		font-size: 0.9em;
-	}
 }
 
 /*Formatação geral*/
@@ -187,8 +23,23 @@ body {
 	margin: 0;
 }
 
+a.nav-link {
+    color: white !important;
+    font-family: bad;
+}
+
+a.nav-link:hover {
+    color: #FF0000 !important;
+    transition: 1s;
+}
+
 li:first-letter {
 	text-transform: uppercase;
+}
+
+.row {
+    margin-left: auto !important;
+    margin-right: auto !important;
 }
 
 
@@ -209,11 +60,6 @@ li:first-letter {
 
 }
 
-nav {
-    margin-left: auto !important;
-    margin-right: auto !important;
-}
-
 /* Cabeçalho */
 
 .bg-dark {
@@ -222,44 +68,33 @@ nav {
 
 /* Banner Slide */
 
+#banner01, #banner02, .textoBanner {
+    height: 780px;
+    background-position: center;
+}
+
 #banner01 {
-    background-image: url('../imagens/banner01.png');
-    height: 600px;
+    background-image: linear-gradient(
+		to right bottom,
+		rgb(0,0,0, 0.9),
+		rgba(0, 0, 0, 0.4)
+	  ), url('../imagens/banner01.png');
+}
+
+#banner02 {
+    background-image: linear-gradient(
+		to right bottom,
+		rgb(0,0,0, 0.9),
+		rgba(0, 0, 0, 0.4)
+	  ), url('../imagens/banner02.png');
+}
+
+#banner01 h1, #banner02 h1 {
+    font-family: bad;
+    color: white;
 }
 
 
-/* Conteudo_Busca */
-
-
-
-#conteudo_procura {
-	margin-top: 20px;
-}
-
-.h2-procura {
-	font-family: beach;
-	font-size: 4.2em;
-}
-
-.p-procura {
-	font-family: one;
-	font-style: italic;
-	font-size: 1em;
-}
-
-.btn-custom {
-	color: aliceblue;
-	font-family: one;
-	font-style: italic;
-}
-
-.img {
-	opacity: 0.5;
-}
-
-.texto {
-	color: #DF7401;
-}
 
 /* Conteudo_Drinks */
 
@@ -315,26 +150,11 @@ nav {
 	font-size: 1.2em;
 }
 
-/* Conteudo_Carrosel */
-
-.h2-sugestao {
-	font-family: beach;
-	font-size: 5.5em;
-	color: #DF7401;
-}
-
-
 
 /* Rodapé */
 
 #rodape {
-	background-color: rgb(251,255,252, 0.6);
-	opacity: 0;
-	animation: opacidade 1.2s;
-	animation-fill-mode: both;
-	box-shadow: 0 0 1em #DF7401;
-	padding-top: 30px;
-	padding-bottom: 30px;
+	background-color: black;
 }
 
 footer h2 {

@@ -41,11 +41,11 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Features</a>
+                                <a class="nav-link" href="#">Seja Colaborador</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Pricing</a>
+                                <a class="nav-link" href="#">Fale Conosco</a>
                             </li>
 
                         </ul>
@@ -59,12 +59,12 @@
 
                     <div class="carousel-inner">
 
-                            <div id='banner01' class="carousel-item active">
-                                <h1>Teste</h1>
+                            <div id='banner01' class="carousel-item active ">
+                                <div class="textoBanner d-flex justify-content-center align-items-center "><h1>Descubra o drink ideal para você</h1></div>
                             </div>
 
                             <div id='banner02' class="carousel-item">
-                                <h1>Teste</h1>
+                                <div class="textoBanner d-flex justify-content-center align-items-center "><h1>Se torne um verdadeiro barman</h1></div>
                             </div>
 
                     </div>
@@ -231,7 +231,7 @@
 
 			@endisset
 
-			<footer id="rodape" class="container row"> <!-- rodape -->
+			<footer id="rodape" class="container-fluid row col-12" > <!-- rodape -->
 
                 <div class="row align-items-center  py-4 text-center topo-rodape">
 
@@ -239,32 +239,29 @@
                             <h4>Menu</h4>
                             <ul class="navbar-nav nav-rodape flex-row justify-content-center text-white-50">
                                     <li class="nav-item text-center px-2">
-                                        <a class="nav-link rolagem" href="">{{ __('Projetos') }}</a>
+                                        <a class="nav-link rolagem" href="">Home</a>
                                     </li>
                                     <li class="nav-item text-center">
-                                        <a class="nav-link rolagem px-2" href="">{{ __('NKW') }}</a>
+                                        <a class="nav-link rolagem px-2" href="">Seja Colaborador</a>
                                     </li>
                                     <li class="nav-item text-center">
-                                        <a class="nav-link rolagem px-2" href="">{{ __('Celleta') }}</a>
-                                    </li>
-                                    <li class="nav-item ">
-                                        <a class="nav-link px-2" href="">{{ __('Curriculo') }}</a>
+                                        <a class="nav-link rolagem px-2" href="">Fale Conosco</a>
                                     </li>
                             </ul>
                     </div>
 
                     <div class="d-none d-md-block col-md-4 col-10 offset-1 offset-md-0 text-white mt-2">
 
-                            <h4>Sobre Mim</h4>
+                            <h4>Sobre</h4>
 
                             <p class='text-white-50 p-2'>
-                                Sou disciplinado e focado para me tornar melhor a cada dia, seja na vida profissional ou pessoal.
+                                Web Service criado para ajudar amantes de drinks
                             </p>
 
                     </div>
 
                     <div class="col-md-2 offset-md-1 col-6 offset-3 ">
-                            <img src="Assets/Img/logo.png" class="img-fluid">
+                            <img src='imagens/logo.png' class="img-fluid">
                     </div>
                 </div>
 
