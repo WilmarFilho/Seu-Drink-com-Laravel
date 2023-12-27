@@ -5,135 +5,83 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 		<title>Encontre seu drink !</title>
-		<link rel="icon" href="imagens/favicon1.png">
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> <!-- Bootstrap4 -->
+		<link rel="icon" href="imagens/favicon.png">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="css/estilo.css">
 		<script src="https://kit.fontawesome.com/9d7842dfbe.js" crossorigin="anonymous"></script> <!-- Icones -->
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 		<script>
 
-			$(document).ready(function() {
-			    $('.meu-select').select2({
-			    	placeholder: "Selecione oque voce tem!",
-    				allowClear: true
-			    });
-
-			    if(!!document.getElementById('conteudo_drinks')) {
-
-					targetOffset = $('#conteudo_drinks').offset().top;
-
-				    $('html, body').animate({
-				    	scrollTop: targetOffset -100
-				    }, 600);
-
-				}
-
-			});
 
 		</script>
 
-		<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 	</head>
 
 
 
 	<body>
 
-		<main class="container-fluid">
+		<main class="container-fluid " style='padding: 0 !important'>
 
-			<header id='cabeçalho'>	 <!-- cabecalho -->
-				<article class="navegacao row fixed-top">
+			<header id='cabeçalho' class="col-12">	 <!-- Navegação -->
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark container row">
 
-					<div class="mx-auto col-md-6 col-9 d-flex justify-content-center">
-						<a href="{{route("site.index")}}"><img src="imagens/logo.png"  class="img-fluid "></a>
-					</div>
+                    <a class=" col-6 row navbar-brand " href="#"><img class=' col-5 img-fluid' src='imagens/logo.png'></a>
 
-				</article>
+                    <button class="col-2 navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="col-6 collapse navbar-collapse  text-white" id="navbarNavDropdown">
+                        <ul class="navbar-nav" style='margin-left: auto;'>
+
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Features</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Pricing</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </nav>
 			</header>
 
-			<section id='capa' class='d-md-block d-none'>  <!-- capa -->
+			<section id='Banner'>  <!-- Banner Slide -->
 
-				<h1 class='capa text-center' >Descubra o Drinkk <br>ideal pra você !</h1>
+                <div id="carouselExample" class="carousel slide">
+
+                    <div class="carousel-inner">
+
+                            <div id='banner01' class="carousel-item active">
+                                <h1>Teste</h1>
+                            </div>
+
+                            <div id='banner02' class="carousel-item">
+                                <h1>Teste</h1>
+                            </div>
+
+                    </div>
+
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                </div>
 
 			</section>
 
-			<section id="conteudo_procura" class=" topo row	 py-5 "> <!-- busca -->
-
-
-
-					<div class="col-xl-6 col-12 text-center row animacao mx-auto" >
-						<div class="texto col-12 mx-auto ">
-							<h2 class='mb-3 h2-procura'>Selecione oque você tem !</h2>
-							<div class='p-procura'>
-
-							</div>
-						</div>
-
-						<div class="col-10 mx-auto form">
-							<form method="get" action="{{route('site.drink')}}">
-
-								@csrf
-
-
-
-								<div class="form-row">
-
-									<div class="col-md-6 col-12">
-										<label>Bebida</label>
-										<select class="form-control meu-select " name="bebida">
-											<option></option>
-											@foreach($options as $key => $option)
-												<option>{{ $option->bebida }}</option>
-											@endforeach
-										</select>
-									</div>
-
-
-									<div class="col-md-6 col-12">
-										<label>Suco ou Fruta</label>
-										<select class="form-control meu-select" name="suco_fruta">
-											<option></option>
-											@foreach($options as $key => $option)
-											<option>{{ $option->suco_fruta }}</option>
-											@endforeach
-										</select>
-									</div>
-
-
-
-									<div class="col-md-6 col-12 mx-auto">
-										<label>Ingrediente</label>
-										<select class="form-control meu-select" name="ingrediente">
-											<option></option>
-											@foreach($options as $key => $option)
-											<option>{{ $option->ingrediente }}</option>
-											@endforeach
-										</select>
-									</div>
-
-
-
-
-
-								</div>
-
-
-
-
-
-
-								<button type="submit"  class="btn btn-danger mt-5 btn-lg btn-block btn-custom">Procurar</button>
-
-							</form>
-						</div>
-					</div>
-
-					<div class="col-xl-6 col-12 animacao mt-5">
-						<img src="imagens/d5.jpg" class="img-fluid img">
-					</div>
-
+			<section id="conteudo_procura" class=" topo container row	 py-5 "> <!-- busca -->
 
 
 			</section>
@@ -283,137 +231,55 @@
 
 			@endisset
 
+			<footer id="rodape" class="container row"> <!-- rodape -->
 
-			<!--<section id="conteudo_carrousel" class="sugestao row mt-5 mb-5  py-5">
+                <div class="row align-items-center  py-4 text-center topo-rodape">
 
+                    <div class=" d-none d-md-block col-md-4 col-12   text-light">
+                            <h4>Menu</h4>
+                            <ul class="navbar-nav nav-rodape flex-row justify-content-center text-white-50">
+                                    <li class="nav-item text-center px-2">
+                                        <a class="nav-link rolagem" href="">{{ __('Projetos') }}</a>
+                                    </li>
+                                    <li class="nav-item text-center">
+                                        <a class="nav-link rolagem px-2" href="">{{ __('NKW') }}</a>
+                                    </li>
+                                    <li class="nav-item text-center">
+                                        <a class="nav-link rolagem px-2" href="">{{ __('Celleta') }}</a>
+                                    </li>
+                                    <li class="nav-item ">
+                                        <a class="nav-link px-2" href="">{{ __('Curriculo') }}</a>
+                                    </li>
+                            </ul>
+                    </div>
 
+                    <div class="d-none d-md-block col-md-4 col-10 offset-1 offset-md-0 text-white mt-2">
 
-					<div class="col-12 text-center ">
-						<h2 class="h2-sugestao">Nossas sugestões</h2>
-					</div>
+                            <h4>Sobre Mim</h4>
 
-					<div class="col-10 mx-auto mt-4 d-none d-md-block" >
+                            <p class='text-white-50 p-2'>
+                                Sou disciplinado e focado para me tornar melhor a cada dia, seja na vida profissional ou pessoal.
+                            </p>
 
-						<div id="carousel" class="carousel slide " data-ride="carousel">
+                    </div>
 
-							<div class="carousel-inner">
+                    <div class="col-md-2 offset-md-1 col-6 offset-3 ">
+                            <img src="Assets/Img/logo.png" class="img-fluid">
+                    </div>
+                </div>
 
-								<div class="carousel-item active">
-									<div class="row">
-										<div class="col-4" style="padding: 0px">
+                <div  class='row justify-content-center'>
 
-											<img src="imagens/drinks/pinacolada.png" class="img-drink" height="400" width="100%">
-										</div>
-										<div class="col-4" style="padding: 0px">
-											<img src="imagens/drinks/caipirinhadelimao.jpg" height="400" width="100%" >
-										</div>
-										<div class="col-4" style="padding: 0px">
-											<img src="imagens/drinks/margarida.jpg" height="400" width="100%">
-										</div>
-									</div>
-								</div>
+                    <div id='legenda-rodape' class="ml-2 mt-3 col-md-6 col-10  pt-3 text-light text-center">
 
-								<div class="carousel-item">
-									<div class="row">
-										<div class="col-4" style="padding: 0px">
-
-											<img src="imagens/drinks/sangria.jpg" class="img-drink" height="400" width="100%">
-										</div>
-										<div class="col-4" style="padding: 0px">
-											<img src="imagens/drinks/gintonica.jpg" height="400" width="100%" >
-										</div>
-										<div class="col-4" style="padding: 0px">
-											<img src="imagens/drinks/caipirinhademorango.jpg" height="400" width="100%">
-										</div>
-									</div>
-								</div>
-
+                        <p class='p-rodape'>Copyright (c) 2023 Wilmar Filho -  Todos os direitos reservados <a href='https://www.instagram.com/wilmar.filho1511/' class=' mx-2 btn btn-light'><i class="fa-brands fa-instagram"></i></a>
+                            </p>
 
 
-							</div>
+                    </div>
 
-							<a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-							    <span><i class="fa-solid fa-angles-left fa-2x text-dark"></i></span>
-							    <span class="sr-only">Previous</span>
-						    </a>
-						  	<a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
-							    <span><i class="fa-solid fa-angles-right fa-2x text-dark"></i></span>
-							    <span class="sr-only">Next</span>
-						  	</a>
+                </div>
 
-
-						</div>
-
-					</div>
-
-					<div class="col-10 mx-auto mt-4 d-md-none d-block" >
-
-						<div id="carousel" class="carousel slide " data-ride="carousel">
-
-							<div class="carousel-inner">
-
-								<div class="carousel-item active">
-									<div class="row">
-										<div class="col-6" style="padding: 0px">
-
-											<img src="imagens/drinks/pinacolada.png" class="img-drink" height="400" width="100%">
-										</div>
-										<div class="col-6" style="padding: 0px">
-											<img src="imagens/drinks/caipirinhadelimao.jpg" height="400" width="100%" >
-										</div>
-
-									</div>
-								</div>
-
-								<div class="carousel-item">
-									<div class="row">
-										<div class="col-6" style="padding: 0px">
-
-											<img src="imagens/drinks/sangria.jpg" class="img-drink" height="400" width="100%">
-										</div>
-										<div class="col-6" style="padding: 0px">
-											<img src="imagens/drinks/gintonica.jpg" height="400" width="100%" >
-										</div>
-
-									</div>
-								</div>
-
-
-
-							</div>
-
-							<a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-							    <span><i class="fa-solid fa-angles-left  text-dark"></i></span>
-							    <span class="sr-only">Previous</span>
-						    </a>
-						  	<a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
-							    <span><i class="fa-solid fa-angles-right  text-dark"></i></span>
-							    <span class="sr-only">Next</span>
-						  	</a>
-
-
-						</div>
-
-					</div>
-
-
-
-			</section>-->
-
-			<footer id="rodape" class="row"> <!-- rodape -->
-				<article class="col-12 row align-items-center ">
-					<div class="col-md-4 col-12 text-center mr-auto">
-						<h2>Sobre:</h2>
-						<p class='text-black-50 font-italic'>Web service criado e desenvolvido de forma autonoma por Wilmar Filho</p>
-					</div>
-
-					<div class="col-md-4 col-12 text-center">
-						<h2>Parceiros</h2>
-						<ul class="nav justify-content-center">
-							<li class="nav-item"><a class="nav-link" href="https:/www.produtosdotiao.com"><img src="imagens/parceiro.png" width="300"></li></a>
-						</ul>
-					</div>
-				</article>
 			</footer>
 
 		</main>
@@ -423,8 +289,11 @@
     	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
    		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-   		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+   		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 	</body>
 
+
 </html>
+
+

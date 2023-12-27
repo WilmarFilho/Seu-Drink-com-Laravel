@@ -16,7 +16,7 @@
 	a.carousel-control-next {
 		right: -50px !important;
 	}
-	
+
 	a.carousel-control-prev {
 		left: -50px !important;
 	}
@@ -64,7 +64,7 @@
 	a.carousel-control-next {
 		right: -50px !important;
 	}
-	
+
 	a.carousel-control-prev {
 		left: -50px !important;
 	}
@@ -107,7 +107,7 @@
 	a.carousel-control-next {
 		right: -60px !important;
 	}
-	
+
 	a.carousel-control-prev {
 		left: -60px !important;
 	}
@@ -153,7 +153,7 @@
 	a.carousel-control-next {
 		right: -90px !important;
 	}
-	
+
 	a.carousel-control-prev {
 		left: -90px !important;
 	}
@@ -183,8 +183,8 @@
 /*Formatação geral*/
 
 body {
-	background: url('../imagens/bg.jpg');
-	margin: 0;	
+	background: black;
+	margin: 0;
 }
 
 li:first-letter {
@@ -193,13 +193,8 @@ li:first-letter {
 
 
 @font-face {
-	font-family: 'beach';
-	src: url('../fonts/beach.woff');
-}
-
-@font-face {
-	font-family: 'dream';
-	src: url('../fonts/dream.woff');
+	font-family: 'bad';
+	src: url('../fonts/badworse.woff');
 }
 
 @font-face {
@@ -207,60 +202,35 @@ li:first-letter {
 	src: url('../fonts/one.woff');
 }
 
-.animacao {
-	opacity: 0;
-	animation: opacidade 1.2s;
-	animation-fill-mode: both;
+
+@keyframes bgMoveX {
+
+
+
 }
 
-@keyframes opacidade {
-
-	to {	
-		opacity: 1;	
-	}
-	
+nav {
+    margin-left: auto !important;
+    margin-right: auto !important;
 }
 
 /* Cabeçalho */
 
-.navegacao {
-	background-color: rgb(251,255,252, 0.8);
-	opacity: 0;
-	animation: opacidade 1.2s;
-	animation-fill-mode: both;
-	box-shadow: 0 0 1em #DF7401;	
+.bg-dark {
+    background-color: black !important;
 }
 
-/* Capa */
+/* Banner Slide */
 
-#capa {
-	background: url(../imagens/d11.jpg) no-repeat;
-	background-position: left 50%;
-	background-size: cover;
-	height: 700px;
-	margin-top: 150px;
-	margin-bottom: 20px;
-	position: relative;
+#banner01 {
+    background-image: url('../imagens/banner01.png');
+    height: 600px;
 }
 
-.capa {
-	color: aliceblue;
-	position: absolute;
-	top: 20%;
-	left: 45%;
-	text-shadow: 0 0 0.5em #DF7401;
-	font-size: 5em;
-	font-family: beach;
-	
-}
 
 /* Conteudo_Busca */
 
-#conteudo_procura, #conteudo_drinks, #conteudo_carrousel {
-	border: 6px double lightsalmon;
-	border-left: none;
-	border-right: none;
-}
+
 
 #conteudo_procura {
 	margin-top: 20px;
@@ -353,13 +323,7 @@ li:first-letter {
 	color: #DF7401;
 }
 
-.carousel-control-next {
-	right: -130px !important;
-}
 
-.carousel-control-prev {
-	left: -130px !important;
-}
 
 /* Rodapé */
 
