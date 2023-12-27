@@ -99,11 +99,37 @@ a.nav-link:hover {
 /* Main */
 
 #main {
-    height: 600px;
+
     background-image: url(../imagens/banner04.png);
     animation: bgMoveX 3s;
     animation-iteration-count:infinite;
     animation-direction: alternate;
+}
+
+#main h2 {
+    font-family: bad;
+    font-size: 2.6em;
+}
+
+#main p {
+    font-size: 1.2em;
+}
+
+.btn-danger  {
+    background-color: #FF0000 !important;
+    font-family: bad;
+    font-size: 1.4em;
+    border-radius: 15px;
+    border: 2px solid salmon;
+}
+
+.btn-danger:hover  {
+    background-color: rgba(19, 16, 16, .2) !important;
+    font-family: bad;
+    font-size: 1.4em;
+    color: #FF0000;
+    border-radius: 15px;
+    border: 2px solid #FF0000;
 }
 
 /* Rodapé */

@@ -83,6 +83,15 @@
 
 			<section id="main" class="container-fluid row	py-5 "> <!-- busca -->
 
+                <div class='col-6'>
+                    <img  class='img-fluid' src="imagens/teste.png">
+                </div>
+
+                <div class='col-6 d-flex justify-content-center align-items-center flex-column text-center text-white' style="padding-right: 10%">
+                    <h2>Faça drinks incríveis usando apenas oque você tem em casa</h2>
+                    <p class="my-4 mb-5">Clique no botão abaixo para selecionar seus ingredientes e automaticamente vamos mostrar e te ensinar como fazer todos os drinks usando os ingredientes que você escolheu! </p>
+                    <div style='width: 100%'><a href='#' class="d-block btn btn-danger btn-block">Clique aqui</a></div>
+                </div>
 
 
 			</section>
