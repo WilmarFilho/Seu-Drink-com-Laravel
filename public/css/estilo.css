@@ -1,6 +1,20 @@
 /*Responsividade*/
 
 @media (max-width: 424.98px) {
+    h1.h1-select {
+        font-size: 1em;
+    }
+    a.btn-success {
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+    section#escolha, div.gradiente {
+        height: auto;
+    }
+    div.gradiente {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
     input#input {
         width: 90%;
         height: 100;
@@ -53,6 +67,20 @@
 
 
 @media (min-width: 425.99px) and (max-width: 475.98px) {
+    h1.h1-select {
+        font-size: 1em;
+    }
+    a.btn-success {
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+    section#escolha, div.gradiente {
+        height: auto;
+    }
+    div.gradiente {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
     input#input {
         width: 90%;
         height: 100;
@@ -95,6 +123,20 @@
 }
 
 @media (min-width: 475.99px) and (max-width: 575.98px) {
+    h1.h1-select {
+        font-size: 1.3em;
+    }
+    a.btn-success {
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+    section#escolha, div.gradiente {
+        height: auto;
+    }
+    div.gradiente {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
     input#input {
         width: 90%;
         height: 100;
@@ -133,6 +175,9 @@
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
+    h1.h1-select {
+        font-size: 1.7em;
+    }
     input#input {
         width: 85%;
         height: 160;
@@ -265,7 +310,20 @@ a.nav-link:hover {
 
 /* Main */
 
-#main {
+#conteudo_erro {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#conteudo_erro h1 {
+    font-family: bad;
+    color: #fff;
+}
+
+#main, #conteudo_erro {
 
     background-image: url(../imagens/banner04.png);
     animation: bgMoveX 3s;
@@ -324,7 +382,7 @@ a.nav-link:hover {
     border: 2px solid salmon;
 }
 
-.btn-success {
+.opcao {
     color: #fff;
     background-color: rgba(0,0,0,.6);
     padding: 25px;
@@ -333,12 +391,12 @@ a.nav-link:hover {
     border-radius: 10px;
     font-family: 'bad';
     font-size: 1.4em;
-    box-shadow: 6px 6px 8em red;
     border: 1px solid black !important;
 }
 
-.btn-success:hover {
+.opcao:hover {
     background-color: rgb(0,0,0);
+    color: #fff;
 }
 
 .btn-danger:hover  {
@@ -351,14 +409,8 @@ a.nav-link:hover {
     border: 2px solid #FF0000;
 }
 
-.btn-success:focus  {
+.opcao:focus, .opcao:active  {
     color: #fff;
-    background-color: rgba(0,0,0,.6);
-    padding: 25px;
-    border-radius: 15px;
-    font-family: 'bad';
-    font-size: 1.4em;
-    box-shadow: 6px 6px 5em red;
     border: 1px solid black !important;
 }
 
@@ -366,9 +418,9 @@ a.nav-link:hover {
 
 #escolha {
     animation: bgSwitch 5s;
+    height: 780px;
     animation-iteration-count:infinite;
     animation-direction: alternate;
-    height: 780px;
     background-position: center;
 }
 

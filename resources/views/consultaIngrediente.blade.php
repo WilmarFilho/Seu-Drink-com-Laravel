@@ -70,6 +70,7 @@
 
                         <div id='opcao'>
 
+                            <a href='#' value='' id='teste' class=' opcao btn'>Pular</a>
 
                         </div>
 
@@ -164,8 +165,10 @@
 
                                 $("#opcao").html(``)
 
+                                $("#opcao").append("<a href='#' value='' id='teste' class=' opcao btn'>Pular</a>")
+
                                 data.forEach(function(obj){
-                                    $("#opcao").append(`<a href='#' value='${obj.ingrediente}' id='teste' class=' opcao btn btn-success m-5'>${obj.ingrediente}</a>`)
+                                    $("#opcao").append(`<a href='#' value='${obj.ingrediente}' id='teste' class=' opcao btn'>${obj.ingrediente}</a>`)
                                 })
 
                             }

@@ -146,7 +146,8 @@
 
                                         <div class='row col-md-9 col-12 justify-content-center'>
 
-                                            <div class="col-10 col-lg-6 d-flex justify-content-center align-items-center">
+                                            <div class="col-10 col-lg-6 d-flex flex-column justify-content-center align-items-center">
+                                                <h1 class="custom" style="text-transform: capitalize;">{{$drink->nome}}</h1>
                                                 <img class="img-fluid img-drink" src="<?=$drink->img?>">
                                             </div>
 
@@ -224,10 +225,10 @@
 			@if(isset($drinks))
 
 				@if($drinks->isEmpty() == 1)
-					<section id="conteudo_drinks" class="row my-5 py-5">
+					<section id="conteudo_erro" class="row">
 
-						<h1 class='col-12 text-center alert'>Infelizmente, no momento não temos drinks com essa combinação cadastrados!</h1>
-						<button class="btn btn-outline-warning mx-auto" onclick="window.location.href='index.php'">Procurar de novo</button>
+						<h1 class='col-10 text-center alert'>Infelizmente, no momento não temos drinks com essa combinação cadastrados!</h1>
+						<a class="d-block btn btn-danger btn-block col-3" href="{{route('site.consulta')}}">Procurar novamente</a>
 
 					</section>
 				@endif

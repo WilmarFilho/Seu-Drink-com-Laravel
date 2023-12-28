@@ -55,7 +55,7 @@
 
 			<section id='escolha'>  <!-- Seleção de Ingredientes -->
 
-                <div class="row gradiente d-flex justify-content-center align-items-center flex-column text-center text-white">
+                <div class="row  gradiente d-flex justify-content-center align-items-center flex-column text-center text-white">
 
                     <h1 class="h1-select col-9">Digite e clique na bebida alcoólica que você tenha!</h1>
 
@@ -166,7 +166,7 @@
                             $("#opcao").html(``)
 
                             data.forEach(function(obj){
-                                $("#opcao").append(`<a href='#' value='${obj.bebida}' id='teste' class=' opcao btn btn-success m-5'>${obj.bebida}</a>`)
+                                $("#opcao").append(`<a href='#' value='${obj.bebida}' id='teste' class=' opcao btn'>${obj.bebida}</a>`)
                             })
 
                         }

@@ -169,7 +169,7 @@
                             $("#opcao").html(``)
 
                             data.forEach(function(obj){
-                                $("#opcao").append(`<a href='#' value='${obj.suco_fruta}' id='teste' class=' opcao btn btn-success'>${obj.suco_fruta}</a>`)
+                                $("#opcao").append(`<a href='#' value='${obj.suco_fruta}' id='teste' class=' opcao btn'>${obj.suco_fruta}</a>`)
                             })
 
                         }
