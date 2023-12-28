@@ -27,7 +27,7 @@
 			<header id='cabeçalho' class="col-12">	 <!-- Navegação -->
                 <nav class="navbar navbar-expand-lg navbar-dark bg-dark container row">
 
-                    <a class=" col-6 row navbar-brand " href="#"><img class=' col-5 img-fluid' src='imagens/logo.png'></a>
+                    <a class=" col-6 row navbar-brand " href="{{route('site.index')}}"><img class=' col-5 img-fluid' src='imagens/logo.png'></a>
 
                     <button class="col-2 navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -37,7 +37,7 @@
                         <ul class="navbar-nav" style='margin-left: auto;'>
 
                             <li class="nav-item active">
-                                <a class="nav-link" href='{{route("site.index")}}'>Home <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href='{{route("site.index")}}'>Home </a>
                             </li>
 
                             <li class="nav-item">
@@ -102,134 +102,117 @@
 
             @endif
 
-			@if(isset($drinks))  <!-- resultado da busca -->
+            @if(isset($drinks))  <!-- resultado da busca -->
 
 				@if($drinks->isEmpty() != 1)
-					<section id="conteudo_drinks" class="row my-5 py-5 justify-content-center">
 
-						<div class='col-10 text-center mb-3'>
-							<h2 class="titulo_conteudo">Drinks que você pode fazer !</h2>
-						</div>
+                    <div id="carouselExample" class="carousel slide">
 
-
-						<?php foreach ($drinks as $indice => $drink) { ?>
-
-							<?php
-
-								$preparo = explode('*', $drink->preparo) ;
-
-								$preparo[1] =  isset($preparo[1]) ? $preparo[1] : '' ;
-								$preparo[2] =  isset($preparo[2]) ? $preparo[2] : '' ;
-								$preparo[3] =  isset($preparo[3]) ? $preparo[3] : '' ;
-								$preparo[4] =  isset($preparo[4]) ? $preparo[4] : '' ;
-								$preparo[5] =  isset($preparo[5]) ? $preparo[5] : '' ;
-								$preparo[6] =  isset($preparo[6]) ? $preparo[6] : '' ;
-
-							?>
-
-							<div class="card col-md-5 mx-2 col-5 card-custom mt-4">
+                        <div class="carousel-inner">
 
 
 
-									<img src="<?=$drink->img?>" class="img-fluid card-img-top">
+                            <?php
+
+                                    $teste = 1;
+
+                                    if($teste = 1) {
+                                        $class = 'carousel-item active';
+                                    }
 
 
 
+                            ?>
 
-								<div class="card-body">
-									<h2 class="text-capitalize text-center card-title h2-drink"><?=$drink->nome?></h2>
+                            <?php foreach ($drinks as $indice => $drink) { ?>
 
-									<div class="card-text row justify-content-center">
+                                <?php
 
-										<div class="col-md-6 mt-3">
-											<h3 class="text-center h3-drink">Ingredientes:</h3>
+                                    $preparo = explode('*', $drink->preparo) ;
 
-											<ul class="list-group text-first ul-drink">
+                                    $preparo[1] =  isset($preparo[1]) ? $preparo[1] : '' ;
+                                    $preparo[2] =  isset($preparo[2]) ? $preparo[2] : '' ;
+                                    $preparo[3] =  isset($preparo[3]) ? $preparo[3] : '' ;
+                                    $preparo[4] =  isset($preparo[4]) ? $preparo[4] : '' ;
+                                    $preparo[5] =  isset($preparo[5]) ? $preparo[5] : '' ;
+                                    $preparo[6] =  isset($preparo[6]) ? $preparo[6] : '' ;
 
-												<?php if($drink->bebida !== 'ND') { ?>
-													<li class="list-group-item"><?=$drink->bebida?></li>
-												<?php } ?>
+							    ?>
 
-												<?php if($drink->bebida_adicional !== 'ND') { ?>
-													<li class="list-group-item"><?=$drink->bebida_adicional?></li>
-												<?php } ?>
+                                <div id='resultado' class='{{$class}}'>
+                                    <div class="textoBanner d-flex justify-content-center align-items-center row ">
 
-												<?php if($drink->suco_fruta !== 'ND') { ?>
-													<li class="list-group-item"><?=$drink->suco_fruta?></li>
-												<?php } ?>
+                                        <div class='row col-9'>
 
-												<?php if($drink->suco_fruta_adicional !== 'ND') { ?>
-													<li class="list-group-item"><?=$drink->suco_fruta_adicional?></li>
-												<?php } ?>
+                                            <div class="col-6 d-flex justify-content-center">
+                                                <img class="img-fluid img-drink" src="<?=$drink->img?>">
+                                            </div>
 
-												<?php if($drink->ingrediente !== 'ND') { ?>
-													<li class="list-group-item"><?=$drink->ingrediente?></li>
-												<?php } ?>
+                                            <div class="col-6">
+                                                <h1>Ingredientes</h1>
+                                                <p>teste</p>
+                                                <ul class="list-group text-first ul-drink">
 
-												<?php if($drink->ingrediente_adicional_1 !== 'ND') { ?>
-													<li class="list-group-item"><?=$drink->ingrediente_adicional_1?></li>
-												<?php } ?>
+                                                    <?php if($drink->bebida !== 'ND') { ?>
+                                                        <li class="list-group-item"><?=$drink->bebida?></li>
+                                                    <?php } ?>
 
-												<?php if($drink->ingrediente_adicional_2 !== 'ND') { ?>
-													<li class="list-group-item"><?=$drink->ingrediente_adicional_2?></li>
-												<?php } ?>
+                                                    <?php if($drink->bebida_adicional !== 'ND') { ?>
+                                                        <li class="list-group-item"><?=$drink->bebida_adicional?></li>
+                                                    <?php } ?>
 
-											</ul>
-										</div>
+                                                    <?php if($drink->suco_fruta !== 'ND') { ?>
+                                                        <li class="list-group-item"><?=$drink->suco_fruta?></li>
+                                                    <?php } ?>
 
-										<div class="col-md-6 mt-3">
+                                                    <?php if($drink->suco_fruta_adicional !== 'ND') { ?>
+                                                        <li class="list-group-item"><?=$drink->suco_fruta_adicional?></li>
+                                                    <?php } ?>
 
-											<h3 class="text-center h3-drink">Como fazer:</h3>
-											<ol class="list-group ul-drink">
+                                                    <?php if($drink->ingrediente !== 'ND') { ?>
+                                                        <li class="list-group-item"><?=$drink->ingrediente?></li>
+                                                    <?php } ?>
 
-												<?php if($preparo[0] !== '') { ?>
-													<li class="list-group-item"><?=$preparo[0]?></li>
-												<?php } ?>
+                                                    <?php if($drink->ingrediente_adicional_1 !== 'ND') { ?>
+                                                        <li class="list-group-item"><?=$drink->ingrediente_adicional_1?></li>
+                                                    <?php } ?>
 
-												<?php if($preparo[1] !== '') { ?>
-													<li class="list-group-item"><?=$preparo[1]?></li>
-												<?php } ?>
+                                                    <?php if($drink->ingrediente_adicional_2 !== 'ND') { ?>
+                                                        <li class="list-group-item"><?=$drink->ingrediente_adicional_2?></li>
+                                                    <?php } ?>
 
+                                                </ul>
+                                                <h1 class='mt-5'>Modo de preparo</h1>
+                                                <p>teste</p>
+                                            </div>
 
-												<?php if($preparo[2] !== '') { ?>
-													<li class="list-group-item"><?=$preparo[2]?></li>
-												<?php } ?>
+                                        </div>
 
-												<?php if($preparo[3] !== '') { ?>
-													<li class="list-group-item"><?=$preparo[3]?></li>
-												<?php } ?>
+                                    </div>
+                                </div>
 
-												<?php if($preparo[4] !== '') { ?>
-													<li class="list-group-item"><?=$preparo[4]?></li>
-												<?php } ?>
+                                <?php $class = 'carousel-item '; ?>
 
-												<?php if($preparo[5] !== '') { ?>
-													<li class="list-group-item"><?=$preparo[5]?></li>
-												<?php } ?>
+                            <?php } ?>
 
-												<?php if($preparo[6] !== '') { ?>
-													<li class="list-group-item"><?=$preparo[6]?></li>
-												<?php } ?>
+                        </div>
 
-											</ol>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                    </div>
 
-										</div>
-
-									</div>
-
-								</div>
-							</div>
-
-						<?php } ?>
-
-
-					</section>
 
 				@endif
 
 			@endif
 
-			@isset($drinks)
+			@if(isset($drinks))
 
 				@if($drinks->isEmpty() == 1)
 					<section id="conteudo_drinks" class="row my-5 py-5">
@@ -240,7 +223,7 @@
 					</section>
 				@endif
 
-			@endisset
+			@endif
 
 			<footer id="rodape" class="container-fluid row col-12" > <!-- rodape -->
 

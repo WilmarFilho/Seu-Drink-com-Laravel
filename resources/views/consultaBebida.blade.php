@@ -27,7 +27,7 @@
 			<header id='cabeçalho' class="col-12">	 <!-- Navegação -->
                 <nav class="navbar navbar-expand-lg navbar-dark bg-dark container row">
 
-                    <a class=" col-6 row navbar-brand " href="#"><img class=' col-5 img-fluid' src='imagens/logo.png'></a>
+                    <a class=" col-6 row navbar-brand " href="{{route('site.index')}}"><img class=' col-5 img-fluid' src='imagens/logo.png'></a>
 
                     <button class="col-2 navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
