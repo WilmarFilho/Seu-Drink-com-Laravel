@@ -64,7 +64,7 @@
                         <input name='fruta' id='fruta' type="text">
 
 
-
+                        <div id='teste' style='border: 2px solid blue; heigh: 80px; margin: 50px; background-color: blue'>teste</div>
 
                                 <h1 class="text-white">fruta</h1>
 
@@ -134,9 +134,47 @@
     	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
    		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-   		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-	</body>
+        <script>
+
+            $(document).ready(function(){
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                $("#fruta").keyup(function(){
+
+
+                    let input = document.querySelector("#fruta").value;
+
+                    let rota = '/ajax/' + 'suco_fruta' + '/' + input
+
+                    $.ajax({
+                        url: rota,
+                        type: 'GET',
+                        contentType: 'application/json',
+
+                        success: function(data) {
+
+                            data.forEach(function(obj){
+                                $("#teste").html(obj.suco_fruta)
+                            })
+
+                        }
+
+                    });
+
+                });
+
+            })
+
+        </script>
+
+    </body>
 
 
 </html>

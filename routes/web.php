@@ -28,5 +28,8 @@ Route::post('/bebida', [App\Http\Controllers\PrincipalController::class, 'escolh
 Route::post('/resultado', [App\Http\Controllers\PrincipalController::class, 'resultado'])->name('resultado');
 
 
+Route::get('/ajax/{tipo}/{valor}', [App\Http\Controllers\PrincipalController::class, 'ajax'])->name('ajax');
+
+
 
 

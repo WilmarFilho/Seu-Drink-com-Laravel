@@ -61,4 +61,11 @@ class PrincipalController extends Controller
         }
 
     }
+
+    public function ajax($tipo, $valor) {
+
+        $opcoes = Options::where($tipo, 'like', '%'.$valor.'%')->get();
+
+        return $opcoes;
+    }
 }
