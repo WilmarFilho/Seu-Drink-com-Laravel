@@ -19,8 +19,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [App\Http\Controllers\PrincipalController::class, 'index'])->name('site.index');
 
+Route::get('/consulta', [App\Http\Controllers\PrincipalController::class, 'consulta'])->name('site.consulta');
 
-Route::get('/drink', [App\Http\Controllers\PrincipalController::class, 'busca'])->name('site.drink');
+Route::post('/fruta', [App\Http\Controllers\PrincipalController::class, 'escolheFruta'])->name('escolheFruta');
+
+Route::post('/bebida', [App\Http\Controllers\PrincipalController::class, 'escolheBebida'])->name('escolheBebida');
+
+Route::post('/resultado', [App\Http\Controllers\PrincipalController::class, 'resultado'])->name('resultado');
 
 
 

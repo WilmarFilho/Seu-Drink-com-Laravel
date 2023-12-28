@@ -49,6 +49,19 @@ a.nav-link:hover {
 	src: url('../fonts/one.woff');
 }
 
+@keyframes bgSwitch {
+
+    from {
+        background-image:  url('../imagens/banner05.png');
+        background-size: cover;
+    }
+
+    to{
+        background-image:  url('../imagens/banner06.png');
+        background-size: cover;
+    }
+
+}
 
 @keyframes bgMoveX {
 
@@ -124,12 +137,32 @@ a.nav-link:hover {
 }
 
 .btn-danger:hover  {
+    transition: 1s;
     background-color: rgba(19, 16, 16, .2) !important;
     font-family: bad;
     font-size: 1.4em;
     color: #FF0000;
     border-radius: 15px;
     border: 2px solid #FF0000;
+}
+
+/* Seleção */
+
+#escolha {
+    animation: bgSwitch 5s;
+    animation-iteration-count:infinite;
+    animation-direction: alternate;
+    height: 780px;
+    background-position: center;
+}
+
+.gradiente {
+    height: 780px;
+    background: linear-gradient(
+		to right bottom,
+		rgb(0,0,0, 0.9),
+		rgba(0, 0, 0, 0.4)
+	  );
 }
 
 /* Rodapé */

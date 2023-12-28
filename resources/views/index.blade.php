@@ -37,7 +37,7 @@
                         <ul class="navbar-nav" style='margin-left: auto;'>
 
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href='{{route("site.index")}}'>Home <span class="sr-only">(current)</span></a>
                             </li>
 
                             <li class="nav-item">
@@ -53,50 +53,56 @@
                 </nav>
 			</header>
 
-			<section id='Banner'>  <!-- Banner Slide -->
+            @if(!isset($drinks))
 
-                <div id="carouselExample" class="carousel slide">
+                <section id='Banner'>  <!-- Banner Slide -->
 
-                    <div class="carousel-inner">
+                    <div id="carouselExample" class="carousel slide">
 
-                            <div id='banner01' class="carousel-item active ">
-                                <div class="textoBanner d-flex justify-content-center align-items-center "><h1>Descubra o drink ideal para você</h1></div>
-                            </div>
+                        <div class="carousel-inner">
 
-                            <div id='banner02' class="carousel-item">
-                                <div class="textoBanner d-flex justify-content-center align-items-center "><h1>Se torne um verdadeiro barman</h1></div>
-                            </div>
+                                <div id='banner01' class="carousel-item active ">
+                                    <div class="textoBanner d-flex justify-content-center align-items-center "><h1>Descubra o drink ideal para você</h1></div>
+                                </div>
 
+                                <div id='banner02' class="carousel-item">
+                                    <div class="textoBanner d-flex justify-content-center align-items-center "><h1>Se torne um verdadeiro barman</h1></div>
+                                </div>
+
+                        </div>
+
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
                     </div>
 
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                </div>
-
-			</section>
-
-			<section id="main" class="container-fluid row	py-5 "> <!-- busca -->
-
-                <div class='col-6'>
-                    <img  class='img-fluid' src="imagens/teste.png">
-                </div>
-
-                <div class='col-6 d-flex justify-content-center align-items-center flex-column text-center text-white' style="padding-right: 10%">
-                    <h2>Faça drinks incríveis usando apenas oque você tem em casa</h2>
-                    <p class="my-4 mb-5">Clique no botão abaixo para selecionar seus ingredientes e automaticamente vamos mostrar e te ensinar como fazer todos os drinks usando os ingredientes que você escolheu! </p>
-                    <div style='width: 100%'><a href='#' class="d-block btn btn-danger btn-block">Clique aqui</a></div>
-                </div>
+                </section>
 
 
-			</section>
 
-			@isset($drinks)  <!-- resultado da busca -->
+                <section id="main" class="container-fluid row	py-5 "> <!-- busca -->
+
+                    <div class='col-6'>
+                        <img  class='img-fluid' src="imagens/teste.png">
+                    </div>
+
+                    <div class='col-6 d-flex justify-content-center align-items-center flex-column text-center text-white' style="padding-right: 10%">
+                        <h2>Faça drinks incríveis usando apenas oque você tem em casa</h2>
+                        <p class="my-4 mb-5">Clique no botão abaixo para selecionar seus ingredientes e automaticamente vamos mostrar e te ensinar como fazer todos os drinks usando os ingredientes que você escolheu! </p>
+                        <div style='width: 100%'><a href='{{route("site.consulta")}}' class="d-block btn btn-danger btn-block">Clique aqui</a></div>
+                    </div>
+
+
+                </section>
+
+            @endif
+
+			@if(isset($drinks))  <!-- resultado da busca -->
 
 				@if($drinks->isEmpty() != 1)
 					<section id="conteudo_drinks" class="row my-5 py-5 justify-content-center">
@@ -216,17 +222,12 @@
 
 						<?php } ?>
 
-						<div class='col-12 d-flex justify-content-center mt-5'>
-
-								{{$drinks->links('pagination.pagination') }}
-
-						</div>
 
 					</section>
 
 				@endif
 
-			@endisset
+			@endif
 
 			@isset($drinks)
 
@@ -249,13 +250,13 @@
                             <h4>Menu</h4>
                             <ul class="navbar-nav nav-rodape flex-row justify-content-center text-white-50">
                                     <li class="nav-item text-center px-2">
-                                        <a class="nav-link rolagem" href="">Home</a>
+                                        <a class="nav-link rolagem" href='{{route("site.index")}}'>Home</a>
                                     </li>
                                     <li class="nav-item text-center">
-                                        <a class="nav-link rolagem px-2" href="">Seja Colaborador</a>
+                                        <a class="nav-link rolagem px-2" href="#">Seja Colaborador</a>
                                     </li>
                                     <li class="nav-item text-center">
-                                        <a class="nav-link rolagem px-2" href="">Fale Conosco</a>
+                                        <a class="nav-link rolagem px-2" href="#">Fale Conosco</a>
                                     </li>
                             </ul>
                     </div>
