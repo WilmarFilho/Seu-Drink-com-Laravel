@@ -25,11 +25,11 @@
 		<main class="container-fluid " style='padding: 0 !important'>
 
 			<header id='cabeçalho' class="col-12">	 <!-- Navegação -->
-                <nav class="navbar navbar-expand-lg navbar-dark bg-dark container row">
+                <nav class="navbar navbar-expand-md navbar-dark bg-dark container row">
 
-                    <a class=" col-6 row navbar-brand " href="{{route('site.index')}}"><img class=' col-5 img-fluid' src='imagens/logo.png'></a>
+                    <a class=" col-6 row navbar-brand " href="{{route('site.index')}}"><img class=' col-lg-5 col-md-8 col-12 img-fluid' src='imagens/logo.png'></a>
 
-                    <button class="col-2 navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="col-4 navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
@@ -85,14 +85,14 @@
 
 
 
-                <section id="main" class="container-fluid row	py-5 "> <!-- busca -->
+                <section id="main" class="container-fluid row justify-content-center	 "> <!-- busca -->
 
-                    <div class='col-6'>
+                    <div class='col-md-6 col-10'>
                         <img  class='img-fluid' src="imagens/teste.png">
                     </div>
 
-                    <div class='col-6 d-flex justify-content-center align-items-center flex-column text-center text-white' style="padding-right: 10%">
-                        <h2>Faça drinks incríveis usando apenas oque você tem em casa</h2>
+                    <div class='texto-main col-md-6 col-10 d-flex justify-content-center align-items-center flex-column text-center text-white'>
+                        <h2 class='h2-custom'>Faça drinks incríveis usando apenas oque você tem em casa</h2>
                         <p class="my-4 mb-5">Clique no botão abaixo para selecionar seus ingredientes e automaticamente vamos mostrar e te ensinar como fazer todos os drinks usando os ingredientes que você escolheu! </p>
                         <div style='width: 100%'><a href='{{route("site.consulta")}}' class="d-block btn btn-danger btn-block">Clique aqui</a></div>
                     </div>
@@ -105,6 +105,8 @@
             @if(isset($drinks))  <!-- resultado da busca -->
 
 				@if($drinks->isEmpty() != 1)
+
+                    <h1 class="h1-mobile text-center d-lg-none" style="margin-top: 80px;margin-bottom: 80px;">Arraste para o lado para ver mais!</h1>
 
                     <div id="carouselExample" class="carousel slide">
 
@@ -142,48 +144,55 @@
                                 <div id='resultado' class='{{$class}}'>
                                     <div class="textoBanner d-flex justify-content-center align-items-center row ">
 
-                                        <div class='row col-9'>
+                                        <div class='row col-md-9 col-12 justify-content-center'>
 
-                                            <div class="col-6 d-flex justify-content-center">
+                                            <div class="col-10 col-lg-6 d-flex justify-content-center align-items-center">
                                                 <img class="img-fluid img-drink" src="<?=$drink->img?>">
                                             </div>
 
-                                            <div class="col-6">
-                                                <h1>Ingredientes</h1>
-                                                <p>teste</p>
-                                                <ul class="list-group text-first ul-drink">
+                                            <div class="col-10 col-lg-6">
+                                                <h1 class="custom">Ingredientes</h1>
+                                                <p class="mt-4">
 
                                                     <?php if($drink->bebida !== 'ND') { ?>
-                                                        <li class="list-group-item"><?=$drink->bebida?></li>
+                                                        <p ><?=$drink->bebida?></p>
                                                     <?php } ?>
 
                                                     <?php if($drink->bebida_adicional !== 'ND') { ?>
-                                                        <li class="list-group-item"><?=$drink->bebida_adicional?></li>
+                                                        <p ><?=$drink->bebida_adicional?></p>
                                                     <?php } ?>
 
                                                     <?php if($drink->suco_fruta !== 'ND') { ?>
-                                                        <li class="list-group-item"><?=$drink->suco_fruta?></li>
+                                                        <p ><?=$drink->suco_fruta?></p>
                                                     <?php } ?>
 
                                                     <?php if($drink->suco_fruta_adicional !== 'ND') { ?>
-                                                        <li class="list-group-item"><?=$drink->suco_fruta_adicional?></li>
+                                                        <p ><?=$drink->suco_fruta_adicional?></p>
                                                     <?php } ?>
 
                                                     <?php if($drink->ingrediente !== 'ND') { ?>
-                                                        <li class="list-group-item"><?=$drink->ingrediente?></li>
+                                                        <p ><?=$drink->ingrediente?></p>
                                                     <?php } ?>
 
                                                     <?php if($drink->ingrediente_adicional_1 !== 'ND') { ?>
-                                                        <li class="list-group-item"><?=$drink->ingrediente_adicional_1?></li>
+                                                        <p ><?=$drink->ingrediente_adicional_1?></p>
                                                     <?php } ?>
 
                                                     <?php if($drink->ingrediente_adicional_2 !== 'ND') { ?>
-                                                        <li class="list-group-item"><?=$drink->ingrediente_adicional_2?></li>
+                                                        <p ><?=$drink->ingrediente_adicional_2?></p>
                                                     <?php } ?>
 
-                                                </ul>
+                                                </p>
+
                                                 <h1 class='mt-5'>Modo de preparo</h1>
-                                                <p>teste</p>
+
+                                                <p class="mt-4">{{$preparo[0]}}</p>
+                                                <p>{{$preparo[1]}}</p>
+                                                <p>{{$preparo[2]}}</p>
+                                                <p>{{$preparo[3]}}</p>
+                                                <p>{{$preparo[4]}}</p>
+                                                <p>{{$preparo[5]}}</p>
+                                                <p>{{$preparo[6]}}</p>
                                             </div>
 
                                         </div>

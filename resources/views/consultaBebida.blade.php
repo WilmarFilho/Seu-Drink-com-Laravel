@@ -25,11 +25,11 @@
 		<main class="container-fluid " style='padding: 0 !important'>
 
 			<header id='cabeçalho' class="col-12">	 <!-- Navegação -->
-                <nav class="navbar navbar-expand-lg navbar-dark bg-dark container row">
+                <nav class="navbar navbar-expand-md navbar-dark bg-dark container row">
 
-                    <a class=" col-6 row navbar-brand " href="{{route('site.index')}}"><img class=' col-5 img-fluid' src='imagens/logo.png'></a>
+                    <a class=" col-6 row navbar-brand " href="{{route('site.index')}}"><img class=' col-lg-5 col-md-8 col-12 img-fluid' src='imagens/logo.png'></a>
 
-                    <button class="col-2 navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="col-4 navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
 

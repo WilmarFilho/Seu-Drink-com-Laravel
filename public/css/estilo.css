@@ -1,19 +1,81 @@
 /*Responsividade*/
 
 @media (max-width: 475.98px) {
-
+    div#banner01, div#banner02, div.textoBanner{
+        height: 450px;
+    }
+    div#banner01, div#banner02 {
+        background-size: cover;
+    }
+    div#banner01 h1, div#banner02 h1 {
+        font-size: 1.5em;
+    }
+    div.texto-main{
+        padding-right: 0 !important;
+    }
+    #main h2 {
+        font-size: 1.7em !important;
+    }
+    #main p {
+        font-size: 1em !important;
+    }
+    footer#rodape {
+        margin-top: 120px;
+    }
 }
 
 @media (min-width: 475.99px) and (max-width: 575.98px) {
-
+    div#banner01, div#banner02, div.textoBanner{
+        height: 520px;
+    }
+    div#banner01, div#banner02 {
+        background-size: cover;
+    }
+    div#banner01 h1, div#banner02 h1 {
+        font-size: 1.7em;
+    }
+    #main h2 {
+        font-size: 1.7em !important;
+    }
+    #main p {
+        font-size: 1em !important;
+    }
+    div.texto-main{
+        padding-right: 0 !important;
+    }
+    footer#rodape {
+        margin-top: 120px;
+    }
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
+    nav.navbar {
+        padding-top: 50px;
+    }
 
+    h1.custom {
+        margin-top: 40px;
+    }
+    div.texto-main{
+        padding-right: 0 !important;
+    }
+    footer#rodape {
+        margin-top: 120px;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
+    nav.navbar {
+        padding-top: 50px;
+    }
 
+    h1.custom {
+        margin-top: 40px;
+    }
+
+    footer#rodape {
+        margin-top: 100px;
+    }
 }
 
 /*Formatação geral*/
@@ -119,9 +181,12 @@ a.nav-link:hover {
     animation-direction: alternate;
 }
 
+.texto-main {
+    padding-right: 10%
+}
+
 #resultado {
     background-image: url(../imagens/banner04.png);
-    height: 780px;
     animation: bgMoveX 3s;
     animation-iteration-count:infinite;
     animation-direction: alternate;
@@ -135,9 +200,20 @@ a.nav-link:hover {
 
 #resultado h1 {
     font-family: bad;
+    color: #FF0000;
+    text-align: center;
+}
+
+#resultado p {
     color: white;
     text-align: center;
 }
+
+.h1-mobile {
+    font-family: bad;
+    color: white;
+}
+
 
 #main h2 {
     font-family: bad;
