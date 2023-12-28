@@ -57,7 +57,9 @@
 
                 <div class="row gradiente d-flex justify-content-center align-items-center flex-column text-center text-white">
 
-                    <form class="col-9" id='selector' method="POST" action="{{route('resultado')}}">
+                    <h1 class="h1-select mb-4 col-9">Digite e clique no ingrediente adicional que você tenha! <br> (Exemplo: Açucar, Gelo ...)</h1>
+
+                    <form class="col-9 nt-4" id='selector' method="POST" action="{{route('resultado')}}">
 
                         @csrf
 

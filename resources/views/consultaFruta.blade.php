@@ -57,7 +57,9 @@
 
                 <div class="row gradiente d-flex justify-content-center align-items-center flex-column text-center text-white">
 
-                    <form class="col-9" id='selector' method="POST" action="{{route('escolheFruta')}}">
+                    <h1 class="h1-select col-9">Digite e clique na fruta ou suco da mesma que você tenha!</h1>
+
+                    <form class="col-9 mt-4" id='selector' method="POST" action="{{route('escolheFruta')}}">
 
                         @csrf
 
@@ -167,7 +169,7 @@
                             $("#opcao").html(``)
 
                             data.forEach(function(obj){
-                                $("#opcao").append(`<a href='#' value='${obj.suco_fruta}' id='teste' class=' opcao btn btn-success m-5'>${obj.suco_fruta}</a>`)
+                                $("#opcao").append(`<a href='#' value='${obj.suco_fruta}' id='teste' class=' opcao btn btn-success'>${obj.suco_fruta}</a>`)
                             })
 
                         }

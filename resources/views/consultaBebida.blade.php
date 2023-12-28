@@ -57,7 +57,9 @@
 
                 <div class="row gradiente d-flex justify-content-center align-items-center flex-column text-center text-white">
 
-                    <form class="col-9" id='selector' method="POST" action="{{route('escolheBebida')}}">
+                    <h1 class="h1-select col-9">Digite e clique na bebida alcoólica que você tenha!</h1>
+
+                    <form class="col-9 mt-4" id='selector' method="POST" action="{{route('escolheBebida')}}">
 
                         @csrf
 
