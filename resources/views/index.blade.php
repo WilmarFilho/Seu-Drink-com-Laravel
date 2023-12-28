@@ -29,15 +29,15 @@
 
                     <a class=" col-6 row navbar-brand " href="{{route('site.index')}}"><img class=' col-lg-5 col-md-8 col-12 img-fluid' src='imagens/logo.png'></a>
 
-                    <button class="col-4 navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="col-4 navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
                     <div class="col-6 collapse navbar-collapse  text-white" id="navbarNavDropdown">
-                        <ul class="navbar-nav" style='margin-left: auto;'>
+                        <ul class="navbar-nav text-center" style='margin-left: auto;'>
 
                             <li class="nav-item active">
-                                <a class="nav-link" href='{{route("site.index")}}'>Home </a>
+                                <a class="nav-link m-custom" href='{{route("site.index")}}'>Home </a>
                             </li>
 
                             <li class="nav-item">
@@ -142,7 +142,7 @@
 							    ?>
 
                                 <div id='resultado' class='{{$class}}'>
-                                    <div class="textoBanner d-flex justify-content-center align-items-center row ">
+                                    <div class=" d-flex justify-content-center align-items-center row ">
 
                                         <div class='row col-md-9 col-12 justify-content-center'>
 
@@ -272,7 +272,7 @@
 
                     <div id='legenda-rodape' class="ml-2 mt-3 col-md-6 col-10  pt-3 text-light text-center" >
 
-                        <p class='p-rodape'>Copyright (c) 2023 Wilmar Filho -  Todos os direitos reservados <a href='https://www.instagram.com/wilmar.filho1511/' class=' mx-2 btn btn-light'><i class="fa-brands fa-instagram"></i></a>
+                        <p class='p-rodape'>Copyright (c) 2023 Wilmar Filho -  Todos os direitos reservados <a href='https://www.instagram.com/wilmar.filho1511/' class=' mt-4 mx-2 btn btn-light'><i class="fa-brands fa-instagram"></i></a>
                             </p>
 
 
@@ -288,8 +288,8 @@
 		<!-- Optional JavaScript -->
     	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
-   		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-   		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 
 	</body>
 

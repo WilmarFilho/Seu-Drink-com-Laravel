@@ -1,8 +1,78 @@
 /*Responsividade*/
 
-@media (max-width: 475.98px) {
+@media (max-width: 424.98px) {
+    input#input {
+        width: 90%;
+        height: 100;
+        font-size: 1.8em;
+    }
+    a.m-custom {
+        margin-top: 25px;
+    }
+    nav.navbar {
+        padding-top: 50px;
+    }
+
+    h1.custom {
+        margin-top: 40px;
+    }
+    h1.h1-mobile {
+        font-size: 1.4em !important;
+    }
     div#banner01, div#banner02, div.textoBanner{
-        height: 450px;
+        height: 520px;
+    }
+    div#banner01, div#banner02 {
+        background-size: cover;
+    }
+    div#banner01 h1, div#banner02 h1 {
+        font-size: 1.2em;
+    }
+    div.texto-main{
+        padding-right: 0 !important;
+    }
+    #main h2 {
+        font-size: 1.5em !important;
+    }
+    #main p {
+        font-size: 0.9em !important;
+    }
+    footer#rodape {
+        margin-top: 120px;
+    }
+    a.btn-danger  {
+        font-size: 0.9em;
+    }
+    div#resultado p {
+        font-size: 0.8em;
+    }
+    div#resultado h1 {
+        font-size: 2em;
+    }
+}
+
+
+@media (min-width: 425.99px) and (max-width: 475.98px) {
+    input#input {
+        width: 90%;
+        height: 100;
+        font-size: 2em;
+    }
+    a.m-custom {
+        margin-top: 25px;
+    }
+    nav.navbar {
+        padding-top: 50px;
+    }
+
+    h1.custom {
+        margin-top: 40px;
+    }
+    h1.h1-mobile {
+        font-size: 1.4em !important;
+    }
+    div#banner01, div#banner02, div.textoBanner{
+        height: 520px;
     }
     div#banner01, div#banner02 {
         background-size: cover;
@@ -25,6 +95,20 @@
 }
 
 @media (min-width: 475.99px) and (max-width: 575.98px) {
+    input#input {
+        width: 90%;
+        height: 100;
+        font-size: 2.5em;
+    }
+    a.m-custom {
+        margin-top: 25px;
+    }
+    nav.navbar {
+        padding-top: 50px;
+    }
+    h1.custom {
+        margin-top: 40px;
+    }
     div#banner01, div#banner02, div.textoBanner{
         height: 520px;
     }
@@ -49,6 +133,14 @@
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
+    input#input {
+        width: 85%;
+        height: 160;
+        font-size: 3em;
+    }
+    a.m-custom {
+        margin-top: 25px;
+    }
     nav.navbar {
         padding-top: 50px;
     }
@@ -250,6 +342,20 @@ a.nav-link:hover {
     animation-direction: alternate;
     height: 780px;
     background-position: center;
+}
+
+#input {
+    width: 75%;
+    height: 200;
+    background-color: rgba(0,0,0,.7);
+    border-bottom: 2px solid red;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    border-left: 2px solid black;
+    color: white;
+    font-size: 5em;
+    font-family: 'bad';
+    text-transform: uppercase;
 }
 
 .gradiente {

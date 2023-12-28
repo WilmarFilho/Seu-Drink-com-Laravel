@@ -29,15 +29,15 @@
 
                     <a class=" col-6 row navbar-brand " href="{{route('site.index')}}"><img class=' col-lg-5 col-md-8 col-12 img-fluid' src='imagens/logo.png'></a>
 
-                    <button class="col-4 navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="col-4 navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
                     <div class="col-6 collapse navbar-collapse  text-white" id="navbarNavDropdown">
-                        <ul class="navbar-nav" style='margin-left: auto;'>
+                        <ul class="navbar-nav text-center" style='margin-left: auto;'>
 
                             <li class="nav-item active">
-                                <a class="nav-link" href='{{route("site.index")}}'>Home <span class="sr-only">(current)</span></a>
+                                <a class="nav-link m-custom" href='{{route("site.index")}}'>Home <span class="sr-only">(current)</span></a>
                             </li>
 
                             <li class="nav-item">
@@ -55,9 +55,9 @@
 
 			<section id='escolha'>  <!-- Seleção de Ingredientes -->
 
-                <div class="gradiente d-flex justify-content-center align-items-center flex-column text-center text-white">
+                <div class="row gradiente d-flex justify-content-center align-items-center flex-column text-center text-white">
 
-                    <form id='selector' method="POST" action="{{route('escolheFruta')}}">
+                    <form class="col-9" id='selector' method="POST" action="{{route('escolheFruta')}}">
 
                         @csrf
 
@@ -119,7 +119,7 @@
 
                     <div id='legenda-rodape' class="ml-2 mt-3 col-md-6 col-10  pt-3 text-light text-center" >
 
-                        <p class='p-rodape'>Copyright (c) 2023 Wilmar Filho -  Todos os direitos reservados <a href='https://www.instagram.com/wilmar.filho1511/' class=' mx-2 btn btn-light'><i class="fa-brands fa-instagram"></i></a>
+                        <p class='p-rodape'>Copyright (c) 2023 Wilmar Filho -  Todos os direitos reservados <a href='https://www.instagram.com/wilmar.filho1511/' class='mt-4  mx-2 btn btn-light'><i class="fa-brands fa-instagram"></i></a>
                             </p>
 
 
@@ -153,9 +153,9 @@
 
                     let input = document.querySelector("#input").value;
 
-                    let rota = '/ajax/' + 'suco_fruta' + '/' + input
+                    let rota = 'ajax/' + 'suco_fruta' + '/' + input
 
-                    $("#opcao").html(``)
+
 
                     $.ajax({
                         url: rota,
@@ -163,6 +163,8 @@
                         contentType: 'application/json',
 
                         success: function(data) {
+
+                            $("#opcao").html(``)
 
                             data.forEach(function(obj){
                                 $("#opcao").append(`<a href='#' value='${obj.suco_fruta}' id='teste' class=' opcao btn btn-success m-5'>${obj.suco_fruta}</a>`)
