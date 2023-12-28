@@ -57,22 +57,19 @@
 
                 <div class="gradiente d-flex justify-content-center align-items-center flex-column text-center text-white">
 
-                    <form method="POST" action="{{route('escolheBebida')}}">
+                    <form id='selector' method="POST" action="{{route('escolheBebida')}}">
 
                         @csrf
 
                         <input name='fruta' id='fruta' type="hidden" value='{{$fruta}}'>
-                        <input name='bebida' id='bebida' type="text">
+                        <input value='' name='bebida' id='bebida' type="hidden">
+                        <input value='' name='controle' id='input' type="text">
+
+                        <div id='opcao'>
 
 
 
-
-                                <h1 class="text-white">bebida</h1>
-
-
-
-
-                        <button type="submitt">enviar</button>
+                        </div>
 
                     </form>
 
@@ -137,7 +134,60 @@
    		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
    		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-	</body>
+
+        <script>
+
+            $(document).ready(function(){
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                $("#input").keyup(function(){
+
+
+                    let input = document.querySelector("#input").value;
+
+                    let rota = '/ajax/' + 'bebida' + '/' + input
+
+                    $("#opcao").html(``)
+
+                    $.ajax({
+                        url: rota,
+                        type: 'GET',
+                        contentType: 'application/json',
+
+                        success: function(data) {
+
+                            data.forEach(function(obj){
+                                $("#opcao").append(`<a href='#' value='${obj.bebida}' id='teste' class=' opcao btn btn-success m-5'>${obj.bebida}</a>`)
+                            })
+
+                        }
+
+                    });
+
+                });
+
+                $("#selector").on('click', '.opcao', function(){
+
+                    var valor = $(this).attr('value')
+
+                    $('#bebida').attr('value', valor)
+
+                    console.log($('#bebida').attr('value'))
+
+                    $("#selector").submit()
+
+                })
+
+            })
+
+        </script>
+
+    </body>
 
 
 </html>

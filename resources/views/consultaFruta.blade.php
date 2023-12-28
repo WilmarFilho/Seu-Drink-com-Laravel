@@ -57,21 +57,23 @@
 
                 <div class="gradiente d-flex justify-content-center align-items-center flex-column text-center text-white">
 
-                    <form method="POST" action="{{route('escolheFruta')}}">
+                    <form id='selector' method="POST" action="{{route('escolheFruta')}}">
 
                         @csrf
 
-                        <input name='fruta' id='fruta' type="text">
+                        <input value='' name='controle' id='input' type="text">
+                        <input value='' name='fruta' id='fruta' type="hidden">
 
 
-                        <div id='teste' style='border: 2px solid blue; heigh: 80px; margin: 50px; background-color: blue'>teste</div>
-
-                                <h1 class="text-white">fruta</h1>
+                        <div id='opcao'>
 
 
 
 
-                        <button type="submitt">enviar</button>
+
+                        </div>
+
+
 
                     </form>
 
@@ -146,12 +148,14 @@
                     }
                 });
 
-                $("#fruta").keyup(function(){
+                $("#input").keyup(function(){
 
 
-                    let input = document.querySelector("#fruta").value;
+                    let input = document.querySelector("#input").value;
 
                     let rota = '/ajax/' + 'suco_fruta' + '/' + input
+
+                    $("#opcao").html(``)
 
                     $.ajax({
                         url: rota,
@@ -161,7 +165,7 @@
                         success: function(data) {
 
                             data.forEach(function(obj){
-                                $("#teste").html(obj.suco_fruta)
+                                $("#opcao").append(`<a href='#' value='${obj.suco_fruta}' id='teste' class=' opcao btn btn-success m-5'>${obj.suco_fruta}</a>`)
                             })
 
                         }
@@ -169,6 +173,18 @@
                     });
 
                 });
+
+                $("#selector").on('click', '.opcao', function(){
+
+                    var valor = $(this).attr('value')
+
+                    $('#fruta').attr('value', valor)
+
+                    console.log($('#fruta').attr('value'))
+
+                    $("#selector").submit()
+
+                })
 
             })
 
