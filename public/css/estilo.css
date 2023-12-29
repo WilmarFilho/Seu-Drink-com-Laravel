@@ -1,6 +1,9 @@
 /*Responsividade*/
 
 @media (max-width: 424.98px) {
+    a.iconf {
+        margin-top: 1.5rem!important;
+    }
     h1.h1-select {
         font-size: 1em;
     }
@@ -458,6 +461,8 @@ a.nav-link:hover {
 #rodape {
 	background-color: black;
 }
+
+
 
 
 

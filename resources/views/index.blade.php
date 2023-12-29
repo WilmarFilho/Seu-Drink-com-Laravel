@@ -148,7 +148,7 @@
 
                                             <div class="col-10 col-lg-6 d-flex flex-column justify-content-center align-items-center">
                                                 <h1 class="custom" style="text-transform: capitalize;">{{$drink->nome}}</h1>
-                                                <img class="img-fluid img-drink" src="<?=$drink->img?>">
+                                                <img class="img-fluid img-drink mt-5" src="<?=$drink->img?>">
                                             </div>
 
                                             <div class="col-10 col-lg-6">
@@ -273,7 +273,7 @@
 
                     <div id='legenda-rodape' class="ml-2 mt-3 col-md-6 col-10  pt-3 text-light text-center" >
 
-                        <p class='p-rodape'>Copyright (c) 2023 Wilmar Filho -  Todos os direitos reservados <a href='https://www.instagram.com/wilmar.filho1511/' class=' mt-4 mx-2 btn btn-light'><i class="fa-brands fa-instagram"></i></a>
+                        <p class='p-rodape'>Copyright (c) 2023 Wilmar Filho -  Todos os direitos reservados <a href='https://www.instagram.com/wilmar.filho1511/' class=' iconf mx-2 btn btn-light'><i class="fa-brands fa-instagram"></i></a>
                             </p>
 
 

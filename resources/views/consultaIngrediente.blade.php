@@ -118,7 +118,7 @@
 
                     <div id='legenda-rodape' class="ml-2 mt-3 col-md-6 col-10  pt-3 text-light text-center" >
 
-                        <p class='p-rodape'>Copyright (c) 2023 Wilmar Filho -  Todos os direitos reservados <a href='https://www.instagram.com/wilmar.filho1511/' class='mt-4 mx-2 btn btn-light'><i class="fa-brands fa-instagram"></i></a>
+                        <p class='p-rodape'>Copyright (c) 2023 Wilmar Filho -  Todos os direitos reservados <a href='https://www.instagram.com/wilmar.filho1511/' class='iconf mx-2 btn btn-light'><i class="fa-brands fa-instagram"></i></a>
                             </p>
 
 
