@@ -21,6 +21,10 @@ Route::get('/', [App\Http\Controllers\PrincipalController::class, 'index'])->nam
 
 Route::get('/consulta', [App\Http\Controllers\PrincipalController::class, 'consulta'])->name('site.consulta');
 
+Route::get('/nomeDrink', [App\Http\Controllers\PrincipalController::class, 'nomeDrink'])->name('site.drinknome');
+
+Route::post('/resultadoNomeDrink', [App\Http\Controllers\PrincipalController::class, 'resultadoNomeDrink'])->name('site.resultadoDrinkNome');
+
 Route::post('/fruta', [App\Http\Controllers\PrincipalController::class, 'escolheFruta'])->name('escolheFruta');
 
 Route::post('/bebida', [App\Http\Controllers\PrincipalController::class, 'escolheBebida'])->name('escolheBebida');

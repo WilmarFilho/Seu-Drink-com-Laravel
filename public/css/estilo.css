@@ -48,6 +48,11 @@
     div.texto-main{
         padding-right: 0 !important;
     }
+
+    div.texto-submain{
+        padding-left: 0 !important;
+    }
+
     #main h2 {
         font-size: 1.5em !important;
     }
@@ -114,6 +119,9 @@
     div.texto-main{
         padding-right: 0 !important;
     }
+    div.texto-submain{
+        padding-left: 0 !important;
+    }
     #main h2 {
         font-size: 1.7em !important;
     }
@@ -172,6 +180,9 @@
     div.texto-main{
         padding-right: 0 !important;
     }
+    div.texto-submain{
+        padding-left: 0 !important;
+    }
     footer#rodape {
         margin-top: 120px;
     }
@@ -198,6 +209,9 @@
     }
     div.texto-main{
         padding-right: 0 !important;
+    }
+    div.texto-submain{
+        padding-left: 0 !important;
     }
     footer#rodape {
         margin-top: 120px;
@@ -336,6 +350,10 @@ a.nav-link:hover {
 
 .texto-main {
     padding-right: 10%
+}
+
+.texto-submain{
+    padding-left: 10%;
 }
 
 #resultado {

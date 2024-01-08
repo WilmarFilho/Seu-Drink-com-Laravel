@@ -57,20 +57,20 @@
 
                 <div class="row gradiente d-flex justify-content-center align-items-center flex-column text-center text-white">
 
-                    <h1 class="h1-select col-9">Digite e clique na fruta ou suco da mesma que você tenha!</h1>
+                    <h1 class="h1-select col-9">Digite e clique no nome do drink que está procurando!</h1>
 
-                    <form class="col-9 mt-4" id='selector' method="POST" action="{{route('escolheFruta')}}">
+                    <form class="col-9 mt-4" id='selector' method="POST" action="{{route('site.resultadoDrinkNome')}}">
 
                         @csrf
 
                         <input value='' name='controle' id='input' type="text">
-                        <input value='' name='fruta' id='fruta' type="hidden">
+                        <input value='' name='nome' id='nome' type="hidden">
 
 
                         <div id='opcao'>
 
 
-                            <a href='#' value='' id='teste' class=' opcao btn'>Pular</a>
+
 
 
                         </div>
@@ -155,7 +155,7 @@
 
                     let input = document.querySelector("#input").value;
 
-                    let rota = 'ajax/' + 'suco_fruta' + '/' + input
+                    let rota = 'ajax/' + 'nome' + '/' + input
 
 
 
@@ -168,10 +168,13 @@
 
                             $("#opcao").html(``)
 
-                            $("#opcao").append("<a href='#' value='' id='teste' class=' opcao btn'>Pular</a>")
+                            let x = 1
 
                             data.forEach(function(obj){
-                                $("#opcao").append(`<a href='#' value='${obj.suco_fruta}' id='teste' class=' opcao btn'>${obj.suco_fruta}</a>`)
+                                x++
+                                if(x < 5) {
+                                    $("#opcao").append(`<a href='#' value='${obj.nome}' id='teste' class=' opcao btn'>${obj.nome}</a>`)
+                                }
                             })
 
                         }
@@ -184,9 +187,8 @@
 
                     var valor = $(this).attr('value')
 
-                    $('#fruta').attr('value', valor)
+                    $('#nome').attr('value', valor)
 
-                    console.log($('#fruta').attr('value'))
 
                     $("#selector").submit()
 

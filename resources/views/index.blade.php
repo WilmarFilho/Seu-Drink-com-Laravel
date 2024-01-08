@@ -97,8 +97,20 @@
                         <div style='width: 100%'><a href='{{route("site.consulta")}}' class="d-block btn btn-danger btn-block">Clique aqui</a></div>
                     </div>
 
+                    <div class='texto-submain col-md-6 col-10 d-flex justify-content-center align-items-center flex-column text-center text-white'>
+                        <h2 class='h2-custom'>Saiba como fazer seu drink favorito</h2>
+                        <p class="my-4 mb-5">Tenha em instantes o passo a passo do seu drink apenas pesquisando pelo nome dele! </p>
+                        <div style='width: 100%'><a href='{{route("site.drinknome")}}' class="d-block btn btn-danger btn-block">Clique aqui</a></div>
+                    </div>
+
+                    <div class='col-md-6 col-10'>
+                        <img  class='img-fluid' src="imagens/teste.png">
+                    </div>
+
 
                 </section>
+
+
 
             @endif
 

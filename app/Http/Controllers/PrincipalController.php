@@ -62,9 +62,38 @@ class PrincipalController extends Controller
 
     }
 
+    public function nomeDrink() {
+        return view('consultaNome');
+    }
+
+    public function resultadoNomeDrink(Request $request) {
+
+        //Recupero as options dos select no banco de dados
+
+        if( strlen($request->input('nome')) == 0) {
+            return redirect()->route('site.index');
+        }
+
+        else {
+           //Cria o objeto baseado no Model Drink
+
+            $drinks = Drink::where('nome', $request->input('nome'))->get();
+
+            //Retorno a view
+
+            return view('index', compact('drinks'));
+
+        }
+
+    }
+
     public function ajax($tipo, $valor) {
 
-        $opcoes = Options::where($tipo, 'like', '%'.$valor.'%')->get();
+        if($tipo == 'nome') {
+            $opcoes = Drink::where($tipo, 'like', '%'.$valor.'%')->get();
+        } else {
+            $opcoes = Options::where($tipo, 'like', '%'.$valor.'%')->get();
+        }
 
         return $opcoes;
     }
