@@ -234,18 +234,25 @@
 
 /*Formatação geral*/
 
+:root {
+    --main-font: 'bad';
+    --main-color: black;
+    --white-color: white;
+    --second-color: #FF0000;
+}
+
 body {
-	background: black;
+	background: var(--main-color);
 	margin: 0;
 }
 
 a.nav-link {
-    color: white !important;
-    font-family: bad;
+    color: var(--white-color) !important;
+    font-family: var(--main-font);
 }
 
 a.nav-link:hover {
-    color: #FF0000 !important;
+    color: var(--second-color) !important;
     transition: 1s;
 }
 
@@ -294,7 +301,7 @@ a.nav-link:hover {
 /* Cabeçalho */
 
 .bg-dark {
-    background-color: black !important;
+    background-color: var(--main-color) !important;
 }
 
 /* Banner Slide */
@@ -302,6 +309,8 @@ a.nav-link:hover {
 #banner01, #banner02, .textoBanner {
     height: 780px;
     background-position: center;
+    color: var(--white-color);
+    font-family: var(--main-font);
 }
 
 #banner01 {
@@ -320,11 +329,6 @@ a.nav-link:hover {
 	  ), url('../imagens/banner02.png');
 }
 
-#banner01 h1, #banner02 h1 {
-    font-family: bad;
-    color: white;
-}
-
 /* Main */
 
 #conteudo_erro {
@@ -333,19 +337,8 @@ a.nav-link:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-#conteudo_erro h1 {
-    font-family: bad;
-    color: #fff;
-}
-
-#main, #conteudo_erro {
-
-    background-image: url(../imagens/banner04.png);
-    animation: bgMoveX 3s;
-    animation-iteration-count:infinite;
-    animation-direction: alternate;
+    font-family: var(--main-font);
+    color: var(--white-color);
 }
 
 .texto-main {
@@ -356,11 +349,14 @@ a.nav-link:hover {
     padding-left: 10%;
 }
 
-#resultado {
+#resultado, #main, #conteudo_erro {
     background-image: url(../imagens/banner04.png);
     animation: bgMoveX 3s;
     animation-iteration-count:infinite;
     animation-direction: alternate;
+    font-family: var(--main-font);
+    color: var(--second-color);
+    text-align: center;
 }
 
 .img-drink {
@@ -369,55 +365,49 @@ a.nav-link:hover {
     border-radius: 500px;
 }
 
-#resultado h1 {
-    font-family: bad;
-    color: #FF0000;
-    text-align: center;
-}
-
 #resultado p {
-    color: white;
+    color: var(--white-color);
     text-align: center;
 }
 
 .h1-mobile {
-    font-family: bad;
-    color: white;
+    font-family: var(--main-font);
+    color: var(--white-color);
 }
 
 
 #main h2 {
-    font-family: bad;
     font-size: 2.6em;
 }
 
 #main p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.2em;
 }
 
 .btn-danger  {
-    background-color: #FF0000 !important;
-    font-family: bad;
+    background-color: var(--second-color) !important;
+    font-family: var(--main-font);
     font-size: 1.4em;
     border-radius: 15px;
     border: 2px solid salmon;
 }
 
 .opcao {
-    color: #fff;
+    color: var(--white-color);
     background-color: rgba(0,0,0,.6);
     padding: 25px;
     margin-top: 30px;
     margin-right: 30px;
     border-radius: 10px;
-    font-family: 'bad';
+    font-family: var(--main-font);
     font-size: 1.4em;
     border: 1px solid black !important;
 }
 
 .opcao:hover {
     background-color: rgb(0,0,0);
-    color: #fff;
+    color: var(--white-color);
 }
 
 .btn-danger:hover  {
@@ -425,7 +415,7 @@ a.nav-link:hover {
     background-color: rgba(19, 16, 16, .2) !important;
     font-family: bad;
     font-size: 1.4em;
-    color: #FF0000;
+    color: var(--second-color);
     border-radius: 15px;
     border: 2px solid #FF0000;
 }
@@ -455,14 +445,14 @@ a.nav-link:hover {
     border-top: 2px solid black;
     border-right: 2px solid black;
     border-left: 2px solid black;
-    color: white;
+    color: var(--white-color);
     font-size: 5em;
-    font-family: 'bad';
+    font-family: var(--main-font);
     text-transform: uppercase;
 }
 
 .h1-select {
-    font-family: bad;
+    font-family: var(--main-font);
 }
 
 .gradiente {
@@ -477,7 +467,7 @@ a.nav-link:hover {
 /* Rodapé */
 
 #rodape {
-	background-color: black;
+	background-color: var(--main-color);
 }
 
 
